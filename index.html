@@ -1,342 +1,677 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle2, ShieldCheck, PackageCheck, MessageCircle, Truck, Globe2, Star, Clock3, FileText, ShoppingBag, Sparkles } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Buy Mate 專業一站式代購</title>
 
-const countries = ["美國", "英國", "加拿大", "澳洲", "日本", "韓國", "中國內地", "泰國"];
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-const services = [
-  {
-    icon: ShoppingBag,
-    title: "海外商品代購",
-    text: "客人提供商品連結後，由本店協助核價、報價、落單及安排到港。",
-  },
-  {
-    icon: PackageCheck,
-    title: "收藏品及 TCG 預訂",
-    text: "精選 Pokémon、One Piece、運動卡及玩具收藏品，提供清晰預訂價。",
-  },
-  {
-    icon: ShieldCheck,
-    title: "健康及監測產品",
-    text: "適合香港家庭及日常使用的健康、護理及監測產品，支援查詢及預訂。",
-  },
-];
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif;
+      background: #f8f9fc;
+      color: #172033;
+      line-height: 1.7;
+    }
 
-const process = [
-  {
-    step: "01",
-    title: "傳送商品連結",
-    text: "透過 WhatsApp 或 Carousell PM 發送商品連結及基本要求。",
-  },
-  {
-    step: "02",
-    title: "清晰報價",
-    text: "本店確認商品、價格、運費及預計時間，讓你先了解總成本。",
-  },
-  {
-    step: "03",
-    title: "確認付款後安排",
-    text: "付款確認後，本店會處理落單、海外收貨及到港安排。",
-  },
-  {
-    step: "04",
-    title: "到港通知及交收",
-    text: "貨品到港後通知客人，可選順豐站、智能櫃或上門派送。",
-  },
-];
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-const trustPoints = [
-  "持有效香港商業登記",
-  "330+ Carousell 真實五星好評",
-  "全程由本店跟進，不需客人自行處理海外購買流程",
-  "支援順豐站、智能櫃及上門派送",
-];
+    .page {
+      width: 100%;
+      overflow: hidden;
+    }
 
-const faqs = [
-  {
-    q: "是否所有海外網站都可以代購？",
-    a: "大部分主流海外網店均可查詢，但受商品類型、平台規則、禁運限制及付款安排影響，最終需以本店確認為準。",
-  },
-  {
-    q: "一般多久可以到香港？",
-    a: "一般海外代購約需 2–3 星期到港，實際時間會因網店出貨速度、清關及物流安排而有所不同。",
-  },
-  {
-    q: "運費如何計算？",
-    a: "到港運費會按網店寄出後的包裝重量或體積重量計算，貨品抵港後會按實際紀錄確認。",
-  },
-  {
-    q: "可以面交嗎？",
-    a: "本店不設面交。香港本地交收主要使用順豐站、順豐智能櫃或上門派送。",
-  },
-];
+    .nav {
+      width: 100%;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(248, 249, 252, 0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(23, 32, 51, 0.08);
+    }
 
-const fadeUp = {
-  initial: { opacity: 0, y: 18 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.55, ease: "easeOut" },
-};
+    .nav-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 18px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
 
-export default function BuyMateLandingPage() {
-  return (
-    <div className="min-h-screen bg-[#F8F9FC] text-slate-900">
-      <header className="sticky top-0 z-40 border-b border-slate-200/70 bg-[#F8F9FC]/90 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
-          <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-slate-900 text-sm font-bold text-white shadow-sm">BM</div>
-            <div>
-              <p className="text-base font-bold tracking-tight">Buy Mate</p>
-              <p className="text-xs text-slate-500">專業一站式代購</p>
-            </div>
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      color: #0f1f3d;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: #102a56;
+      color: white;
+      display: grid;
+      place-items: center;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      box-shadow: 0 12px 28px rgba(16, 42, 86, 0.18);
+    }
+
+    .brand-text small {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: #667085;
+      margin-top: -2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      font-size: 15px;
+      color: #344054;
+      font-weight: 600;
+    }
+
+    .nav-button {
+      background: #102a56;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-weight: 700;
+      box-shadow: 0 10px 24px rgba(16, 42, 86, 0.18);
+    }
+
+    .section {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 78px 22px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 42px;
+      align-items: center;
+      padding-top: 82px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: #eef4ff;
+      color: #194185;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 22px;
+      border: 1px solid #d1e0ff;
+    }
+
+    h1 {
+      font-size: clamp(38px, 5vw, 68px);
+      line-height: 1.12;
+      letter-spacing: -1.5px;
+      color: #0f1f3d;
+      margin-bottom: 24px;
+    }
+
+    .hero-subtitle {
+      font-size: 20px;
+      color: #475467;
+      max-width: 680px;
+      margin-bottom: 30px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 22px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 16px;
+    }
+
+    .primary-btn {
+      background: #102a56;
+      color: white;
+      box-shadow: 0 14px 28px rgba(16, 42, 86, 0.2);
+    }
+
+    .secondary-btn {
+      background: white;
+      color: #102a56;
+      border: 1px solid rgba(16, 42, 86, 0.16);
+    }
+
+    .trust-list {
+      display: grid;
+      gap: 10px;
+      color: #344054;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .trust-item::before {
+      content: "✓";
+      display: inline-grid;
+      place-items: center;
+      width: 22px;
+      height: 22px;
+      margin-right: 9px;
+      border-radius: 50%;
+      background: #ecfdf3;
+      color: #027a48;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .hero-card {
+      background: white;
+      border: 1px solid rgba(16, 42, 86, 0.08);
+      border-radius: 30px;
+      padding: 28px;
+      box-shadow: 0 24px 70px rgba(16, 42, 86, 0.12);
+    }
+
+    .service-desk {
+      border-radius: 24px;
+      background: linear-gradient(180deg, #f8fbff, #ffffff);
+      border: 1px solid #e6edf7;
+      padding: 26px;
+    }
+
+    .service-desk h2 {
+      color: #102a56;
+      font-size: 25px;
+      margin-bottom: 8px;
+    }
+
+    .mini-card {
+      background: white;
+      border: 1px solid #e6edf7;
+      border-radius: 18px;
+      padding: 18px;
+      margin-top: 14px;
+    }
+
+    .mini-card strong {
+      display: block;
+      color: #0f1f3d;
+      margin-bottom: 4px;
+    }
+
+    .countries {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .country {
+      padding: 9px 13px;
+      border-radius: 999px;
+      background: #eef4ff;
+      color: #194185;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin-bottom: 34px;
+    }
+
+    .section-label {
+      color: #194185;
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.18;
+      color: #0f1f3d;
+      margin-bottom: 14px;
+      letter-spacing: -0.8px;
+    }
+
+    .section-desc {
+      color: #667085;
+      font-size: 18px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid rgba(16, 42, 86, 0.08);
+      border-radius: 24px;
+      padding: 26px;
+      box-shadow: 0 18px 48px rgba(16, 42, 86, 0.08);
+    }
+
+    .icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 16px;
+      background: #eef4ff;
+      color: #194185;
+      display: grid;
+      place-items: center;
+      font-size: 23px;
+      margin-bottom: 16px;
+    }
+
+    .card h3 {
+      font-size: 21px;
+      color: #0f1f3d;
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      color: #667085;
+      font-size: 16px;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .step {
+      background: white;
+      border-radius: 24px;
+      border: 1px solid rgba(16, 42, 86, 0.08);
+      padding: 24px;
+      box-shadow: 0 18px 48px rgba(16, 42, 86, 0.07);
+    }
+
+    .step-number {
+      font-size: 14px;
+      font-weight: 900;
+      color: #194185;
+      background: #eef4ff;
+      border-radius: 999px;
+      padding: 5px 10px;
+      display: inline-block;
+      margin-bottom: 14px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .stat {
+      background: #102a56;
+      color: white;
+      border-radius: 24px;
+      padding: 26px;
+      min-height: 150px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 18px 48px rgba(16, 42, 86, 0.14);
+    }
+
+    .stat strong {
+      font-size: 34px;
+      line-height: 1;
+    }
+
+    .stat span {
+      color: #d0d5dd;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .faq {
+      background: white;
+      border-radius: 22px;
+      border: 1px solid rgba(16, 42, 86, 0.08);
+      padding: 24px;
+      box-shadow: 0 16px 42px rgba(16, 42, 86, 0.06);
+    }
+
+    .faq h3 {
+      color: #0f1f3d;
+      margin-bottom: 8px;
+      font-size: 19px;
+    }
+
+    .faq p {
+      color: #667085;
+    }
+
+    .cta {
+      background: #102a56;
+      color: white;
+      border-radius: 34px;
+      padding: 48px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: center;
+      gap: 24px;
+      box-shadow: 0 24px 70px rgba(16, 42, 86, 0.2);
+    }
+
+    .cta h2 {
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+
+    .cta p {
+      color: #d0d5dd;
+      font-size: 18px;
+    }
+
+    .cta .primary-btn {
+      background: white;
+      color: #102a56;
+      justify-self: end;
+    }
+
+    footer {
+      border-top: 1px solid rgba(16, 42, 86, 0.08);
+      color: #667085;
+      text-align: center;
+      padding: 34px 22px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 50px;
+      }
+
+      .grid-3,
+      .process-grid,
+      .stats,
+      .faq-grid,
+      .cta {
+        grid-template-columns: 1fr;
+      }
+
+      .cta {
+        padding: 34px 24px;
+      }
+
+      .cta .primary-btn {
+        justify-self: start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <header class="nav">
+      <div class="nav-inner">
+        <a href="#" class="brand">
+          <div class="brand-mark">BM</div>
+          <div class="brand-text">
+            Buy Mate
+            <small>專業一站式代購</small>
           </div>
-          <nav className="hidden items-center gap-7 text-sm font-medium text-slate-600 md:flex">
-            <a href="#services" className="hover:text-slate-950">服務</a>
-            <a href="#process" className="hover:text-slate-950">流程</a>
-            <a href="#trust" className="hover:text-slate-950">保障</a>
-            <a href="#faq" className="hover:text-slate-950">常見問題</a>
-          </nav>
-          <Button asChild className="rounded-full bg-slate-900 px-5 text-white hover:bg-slate-800">
-            <a href="https://wa.me/YOUR_WHATSAPP_NUMBER" target="_blank" rel="noreferrer">立即查詢</a>
-          </Button>
+        </a>
+
+        <nav class="nav-links">
+          <a href="#services">服務</a>
+          <a href="#process">流程</a>
+          <a href="#trust">保障</a>
+          <a href="#faq">常見問題</a>
+          <a class="nav-button" href="#contact">立即查詢</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section hero">
+        <div>
+          <div class="eyebrow">330+ Carousell 五星好評｜持有效商業登記</div>
+          <h1>海外商品代購，<br>由查詢到到港都幫你跟好</h1>
+          <p class="hero-subtitle">
+            Buy Mate 為香港客人提供專業一站式代購服務。你只需提供商品連結，我們會協助報價、落單、海外收貨、清關及香港派送安排，適合想買海外商品但不想自行處理繁複流程的客人。
+          </p>
+
+          <div class="hero-actions">
+            <a class="primary-btn" href="#contact">WhatsApp 查詢報價</a>
+            <a class="secondary-btn" href="#process">查看代購流程</a>
+          </div>
+
+          <div class="trust-list">
+            <div class="trust-item">持有效香港商業登記</div>
+            <div class="trust-item">330+ Carousell 真實五星好評</div>
+            <div class="trust-item">全程由本店跟進，不需客人自行處理海外購買流程</div>
+            <div class="trust-item">支援順豐站、智能櫃及上門派送</div>
+          </div>
         </div>
-      </header>
 
-      <main>
-        <section className="relative overflow-hidden">
-          <div className="absolute inset-0 -z-10">
-            <div className="absolute left-1/2 top-0 h-96 w-96 -translate-x-1/2 rounded-full bg-blue-100/60 blur-3xl" />
-            <div className="absolute right-0 top-28 h-72 w-72 rounded-full bg-slate-200/50 blur-3xl" />
-          </div>
+        <div class="hero-card">
+          <div class="service-desk">
+            <h2>Buy Mate Service Desk</h2>
+            <p>一個連結，開始代購查詢</p>
 
-          <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 py-16 md:grid-cols-[1.05fr_0.95fr] md:px-8 md:py-24">
-            <motion.div {...fadeUp}>
-              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/80 px-4 py-2 text-sm font-medium text-slate-700 shadow-sm">
-                <Star className="h-4 w-4" />
-                330+ Carousell 五星好評｜持有效商業登記
-              </div>
-
-              <h1 className="max-w-3xl text-4xl font-black leading-tight tracking-tight text-slate-950 md:text-6xl">
-                海外商品代購，<br className="hidden md:block" />由查詢到到港都幫你跟好
-              </h1>
-
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600 md:text-xl">
-                Buy Mate 為香港客人提供專業一站式代購服務。你只需提供商品連結，我們會協助報價、落單、海外收貨、清關及香港派送安排，適合想買海外商品但不想自行處理繁複流程的客人。
-              </p>
-
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <Button asChild size="lg" className="rounded-full bg-slate-900 px-7 text-white hover:bg-slate-800">
-                  <a href="https://wa.me/YOUR_WHATSAPP_NUMBER" target="_blank" rel="noreferrer">
-                    WhatsApp 查詢報價 <ArrowRight className="ml-2 h-4 w-4" />
-                  </a>
-                </Button>
-                <Button asChild size="lg" variant="outline" className="rounded-full border-slate-300 bg-white px-7 hover:bg-slate-50">
-                  <a href="#process">查看代購流程</a>
-                </Button>
-              </div>
-
-              <div className="mt-8 grid gap-3 text-sm text-slate-600 sm:grid-cols-2">
-                {trustPoints.map((point) => (
-                  <div key={point} className="flex items-start gap-2">
-                    <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-slate-900" />
-                    <span>{point}</span>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-
-            <motion.div {...fadeUp} transition={{ duration: 0.55, delay: 0.12, ease: "easeOut" }}>
-              <Card className="overflow-hidden rounded-[2rem] border-slate-200 bg-white/90 shadow-2xl shadow-slate-200/70">
-                <CardContent className="p-0">
-                  <div className="border-b border-slate-200 bg-slate-950 p-6 text-white">
-                    <p className="text-sm font-medium text-slate-300">Buy Mate Service Desk</p>
-                    <h2 className="mt-2 text-2xl font-bold">一個連結，開始代購查詢</h2>
-                  </div>
-                  <div className="space-y-4 p-6">
-                    <div className="rounded-3xl bg-[#F8F9FC] p-5">
-                      <div className="flex items-center gap-3">
-                        <MessageCircle className="h-5 w-5 text-slate-800" />
-                        <p className="font-semibold">客人提供商品連結</p>
-                      </div>
-                      <p className="mt-2 text-sm leading-6 text-slate-600">例如品牌官網、百貨公司、零售平台或限定商品頁面。</p>
-                    </div>
-                    <div className="rounded-3xl bg-[#F8F9FC] p-5">
-                      <div className="flex items-center gap-3">
-                        <FileText className="h-5 w-5 text-slate-800" />
-                        <p className="font-semibold">本店提供清晰報價</p>
-                      </div>
-                      <p className="mt-2 text-sm leading-6 text-slate-600">讓你付款前先知道貨款、海外安排及到港運費參考。</p>
-                    </div>
-                    <div className="rounded-3xl bg-[#F8F9FC] p-5">
-                      <div className="flex items-center gap-3">
-                        <Truck className="h-5 w-5 text-slate-800" />
-                        <p className="font-semibold">到港後安排順豐交收</p>
-                      </div>
-                      <p className="mt-2 text-sm leading-6 text-slate-600">支援順豐站、智能櫃及上門派送安排。</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          </div>
-        </section>
-
-        <section className="border-y border-slate-200 bg-white">
-          <div className="mx-auto flex max-w-7xl flex-col gap-4 px-5 py-6 md:flex-row md:items-center md:justify-between md:px-8">
-            <div className="flex items-center gap-3 text-slate-700">
-              <Globe2 className="h-5 w-5" />
-              <p className="font-semibold">支援地區</p>
+            <div class="mini-card">
+              <strong>客人提供商品連結</strong>
+              <p>例如品牌官網、百貨公司、零售平台或限定商品頁面。</p>
             </div>
-            <div className="flex flex-wrap gap-2">
-              {countries.map((country) => (
-                <span key={country} className="rounded-full border border-slate-200 bg-[#F8F9FC] px-4 py-2 text-sm font-medium text-slate-700">
-                  {country}
-                </span>
-              ))}
+
+            <div class="mini-card">
+              <strong>本店提供清晰報價</strong>
+              <p>讓你付款前先知道貨款、海外安排及到港運費參考。</p>
+            </div>
+
+            <div class="mini-card">
+              <strong>到港後安排順豐交收</strong>
+              <p>支援順豐站、智能櫃及上門派送安排。</p>
+            </div>
+
+            <div class="countries">
+              <span class="country">美國</span>
+              <span class="country">英國</span>
+              <span class="country">加拿大</span>
+              <span class="country">澳洲</span>
+              <span class="country">日本</span>
+              <span class="country">韓國</span>
+              <span class="country">中國內地</span>
+              <span class="country">泰國</span>
             </div>
           </div>
-        </section>
-
-        <section id="services" className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-24">
-          <div className="max-w-3xl">
-            <p className="text-sm font-bold uppercase tracking-[0.22em] text-slate-500">Services</p>
-            <h2 className="mt-3 text-3xl font-black tracking-tight text-slate-950 md:text-5xl">不只是幫你付款，而是幫你處理整個購買流程</h2>
-            <p className="mt-5 text-lg leading-8 text-slate-600">我們的服務重點是減少客人處理海外購物的時間成本，特別適合需要穩定、清晰、有跟進的香港買家。</p>
-          </div>
-
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {services.map((item) => {
-              const Icon = item.icon;
-              return (
-                <Card key={item.title} className="rounded-[1.75rem] border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-200/80">
-                  <CardContent className="p-7">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-950 text-white">
-                      <Icon className="h-5 w-5" />
-                    </div>
-                    <h3 className="mt-6 text-xl font-bold text-slate-950">{item.title}</h3>
-                    <p className="mt-3 leading-7 text-slate-600">{item.text}</p>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
-        </section>
-
-        <section id="process" className="bg-white py-16 md:py-24">
-          <div className="mx-auto max-w-7xl px-5 md:px-8">
-            <div className="grid gap-10 md:grid-cols-[0.8fr_1.2fr] md:items-start">
-              <div>
-                <p className="text-sm font-bold uppercase tracking-[0.22em] text-slate-500">Process</p>
-                <h2 className="mt-3 text-3xl font-black tracking-tight text-slate-950 md:text-5xl">四步完成代購查詢</h2>
-                <p className="mt-5 text-lg leading-8 text-slate-600">流程清楚，付款前先確認報價；付款後由本店跟進海外購買及到港安排。</p>
-                <Button asChild className="mt-7 rounded-full bg-slate-900 px-6 text-white hover:bg-slate-800">
-                  <a href="https://wa.me/YOUR_WHATSAPP_NUMBER" target="_blank" rel="noreferrer">開始查詢</a>
-                </Button>
-              </div>
-
-              <div className="grid gap-4">
-                {process.map((item) => (
-                  <div key={item.step} className="grid gap-4 rounded-[1.75rem] border border-slate-200 bg-[#F8F9FC] p-5 sm:grid-cols-[88px_1fr]">
-                    <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-slate-950 text-lg font-black text-white">{item.step}</div>
-                    <div>
-                      <h3 className="text-xl font-bold text-slate-950">{item.title}</h3>
-                      <p className="mt-2 leading-7 text-slate-600">{item.text}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="trust" className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-24">
-          <div className="rounded-[2rem] bg-slate-950 p-6 text-white md:p-10">
-            <div className="grid gap-10 md:grid-cols-[0.9fr_1.1fr] md:items-center">
-              <div>
-                <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm text-slate-200">
-                  <ShieldCheck className="h-4 w-4" />
-                  專業可靠，適合長期查詢
-                </div>
-                <h2 className="text-3xl font-black tracking-tight md:text-5xl">為甚麼選擇 Buy Mate？</h2>
-                <p className="mt-5 text-lg leading-8 text-slate-300">我們不是只提供一句報價，而是重視每次查詢的透明度、溝通效率及到港安排，讓客人更安心購買海外商品。</p>
-              </div>
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div className="rounded-3xl bg-white/10 p-6">
-                  <Star className="h-6 w-6" />
-                  <p className="mt-4 text-3xl font-black">330+</p>
-                  <p className="mt-1 text-sm text-slate-300">Carousell 五星好評</p>
-                </div>
-                <div className="rounded-3xl bg-white/10 p-6">
-                  <ShieldCheck className="h-6 w-6" />
-                  <p className="mt-4 text-3xl font-black">BR</p>
-                  <p className="mt-1 text-sm text-slate-300">持有效香港商業登記</p>
-                </div>
-                <div className="rounded-3xl bg-white/10 p-6">
-                  <Clock3 className="h-6 w-6" />
-                  <p className="mt-4 text-3xl font-black">2–3</p>
-                  <p className="mt-1 text-sm text-slate-300">一般約 2–3 星期到港</p>
-                </div>
-                <div className="rounded-3xl bg-white/10 p-6">
-                  <Truck className="h-6 w-6" />
-                  <p className="mt-4 text-3xl font-black">SF</p>
-                  <p className="mt-1 text-sm text-slate-300">順豐站／智能櫃／上門派送</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="faq" className="bg-white py-16 md:py-24">
-          <div className="mx-auto max-w-5xl px-5 md:px-8">
-            <div className="text-center">
-              <p className="text-sm font-bold uppercase tracking-[0.22em] text-slate-500">FAQ</p>
-              <h2 className="mt-3 text-3xl font-black tracking-tight text-slate-950 md:text-5xl">常見問題</h2>
-            </div>
-            <div className="mt-10 grid gap-4">
-              {faqs.map((item) => (
-                <Card key={item.q} className="rounded-[1.5rem] border-slate-200 bg-[#F8F9FC] shadow-none">
-                  <CardContent className="p-6">
-                    <h3 className="text-lg font-bold text-slate-950">{item.q}</h3>
-                    <p className="mt-3 leading-7 text-slate-600">{item.a}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-24">
-          <div className="relative overflow-hidden rounded-[2rem] bg-white p-8 shadow-2xl shadow-slate-200/70 md:p-12">
-            <div className="absolute right-0 top-0 h-56 w-56 rounded-full bg-blue-100/70 blur-3xl" />
-            <div className="relative grid gap-8 md:grid-cols-[1fr_auto] md:items-center">
-              <div>
-                <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-[#F8F9FC] px-4 py-2 text-sm font-medium text-slate-700">
-                  <Sparkles className="h-4 w-4" />
-                  想買海外商品？先發連結查詢
-                </div>
-                <h2 className="text-3xl font-black tracking-tight text-slate-950 md:text-5xl">把商品連結傳給我們，先確認能否代購及初步報價</h2>
-                <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">請提供商品連結、款式、數量及是否需要指定送貨方式。本店會按實際情況回覆報價及安排。</p>
-              </div>
-              <div className="flex flex-col gap-3">
-                <Button asChild size="lg" className="rounded-full bg-slate-900 px-7 text-white hover:bg-slate-800">
-                  <a href="https://wa.me/YOUR_WHATSAPP_NUMBER" target="_blank" rel="noreferrer">WhatsApp 查詢</a>
-                </Button>
-                <Button asChild size="lg" variant="outline" className="rounded-full border-slate-300 bg-white px-7 hover:bg-slate-50">
-                  <a href="https://www.carousell.com.hk/u/buymate.hk/" target="_blank" rel="noreferrer">查看 Carousell</a>
-                </Button>
-              </div>
-            </div>
-          </div>
-        </section>
-      </main>
-
-      <footer className="border-t border-slate-200 bg-white">
-        <div className="mx-auto flex max-w-7xl flex-col gap-4 px-5 py-8 text-sm text-slate-500 md:flex-row md:items-center md:justify-between md:px-8">
-          <p>© Buy Mate Ecommerce International (HK). All rights reserved.</p>
-          <p>海外商品代購｜收藏品預訂｜順豐香港交收安排</p>
         </div>
-      </footer>
-    </div>
-  );
-}
+      </section>
+
+      <section class="section" id="services">
+        <div class="section-heading">
+          <div class="section-label">Services</div>
+          <h2 class="section-title">不只是幫你付款，而是幫你處理整個購買流程</h2>
+          <p class="section-desc">
+            我們的服務重點是減少客人處理海外購物的時間成本，特別適合需要穩定、清晰、有跟進的香港買家。
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="icon">🛍</div>
+            <h3>海外商品代購</h3>
+            <p>客人提供商品連結後，由本店協助核價、報價、落單及安排到港。</p>
+          </div>
+
+          <div class="card">
+            <div class="icon">📦</div>
+            <h3>收藏品及 TCG 預訂</h3>
+            <p>精選 Pokémon、One Piece、運動卡及玩具收藏品，提供清晰預訂價。</p>
+          </div>
+
+          <div class="card">
+            <div class="icon">🛡</div>
+            <h3>健康及監測產品</h3>
+            <p>適合香港家庭及日常使用的健康、護理及監測產品，支援查詢及預訂。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="process">
+        <div class="section-heading">
+          <div class="section-label">Process</div>
+          <h2 class="section-title">四步完成代購查詢</h2>
+          <p class="section-desc">
+            流程清楚，付款前先確認報價；付款後由本店跟進海外購買及到港安排。
+          </p>
+        </div>
+
+        <div class="process-grid">
+          <div class="step">
+            <span class="step-number">01</span>
+            <h3>傳送商品連結</h3>
+            <p>透過 WhatsApp 或 Carousell PM 發送商品連結及基本要求。</p>
+          </div>
+
+          <div class="step">
+            <span class="step-number">02</span>
+            <h3>清晰報價</h3>
+            <p>本店確認商品、價格、運費及預計時間，讓你先了解總成本。</p>
+          </div>
+
+          <div class="step">
+            <span class="step-number">03</span>
+            <h3>確認付款後安排</h3>
+            <p>付款確認後，本店會處理落單、海外收貨及到港安排。</p>
+          </div>
+
+          <div class="step">
+            <span class="step-number">04</span>
+            <h3>到港通知及交收</h3>
+            <p>貨品到港後通知客人，可選順豐站、智能櫃或上門派送。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="trust">
+        <div class="section-heading">
+          <div class="section-label">Trust</div>
+          <h2 class="section-title">專業可靠，適合長期查詢</h2>
+          <p class="section-desc">
+            我們不是只提供一句報價，而是重視每次查詢的透明度、溝通效率及到港安排，讓客人更安心購買海外商品。
+          </p>
+        </div>
+
+        <div class="stats">
+          <div class="stat">
+            <strong>330+</strong>
+            <span>Carousell 五星好評</span>
+          </div>
+
+          <div class="stat">
+            <strong>BR</strong>
+            <span>持有效香港商業登記</span>
+          </div>
+
+          <div class="stat">
+            <strong>2–3</strong>
+            <span>一般約 2–3 星期到港</span>
+          </div>
+
+          <div class="stat">
+            <strong>SF</strong>
+            <span>順豐站／智能櫃／上門派送</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="faq">
+        <div class="section-heading">
+          <div class="section-label">FAQ</div>
+          <h2 class="section-title">常見問題</h2>
+        </div>
+
+        <div class="faq-grid">
+          <div class="faq">
+            <h3>是否所有海外網站都可以代購？</h3>
+            <p>大部分主流海外網店均可查詢，但受商品類型、平台規則、禁運限制及付款安排影響，最終需以本店確認為準。</p>
+          </div>
+
+          <div class="faq">
+            <h3>一般多久可以到香港？</h3>
+            <p>一般海外代購約需 2–3 星期到港，實際時間會因網店出貨速度、清關及物流安排而有所不同。</p>
+          </div>
+
+          <div class="faq">
+            <h3>運費如何計算？</h3>
+            <p>到港運費會按網店寄出後的包裝重量或體積重量計算，貨品抵港後會按實際紀錄確認。</p>
+          </div>
+
+          <div class="faq">
+            <h3>可以面交嗎？</h3>
+            <p>本店不設面交。香港本地交收主要使用順豐站、順豐智能櫃或上門派送。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="cta">
+          <div>
+            <h2>想買海外商品？先發連結查詢</h2>
+            <p>請提供商品連結、款式、數量及是否需要指定送貨方式。本店會按實際情況回覆報價及安排。</p>
+          </div>
+
+          <a class="primary-btn" href="#">WhatsApp 查詢</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© Buy Mate Ecommerce International (HK). All rights reserved.</p>
+      <p>海外商品代購｜收藏品預訂｜順豐香港交收安排</p>
+    </footer>
+  </div>
+</body>
+</html>
