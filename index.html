@@ -1,0 +1,1386 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Buy Mate 專業一站式代購｜香港海外商品代購、TCG 預訂、順豐收貨安排</title>
+  <meta name="description" content="Buy Mate 為香港客人提供海外商品代購、TCG 及收藏品預訂服務。客人提供商品連結後，由本店協助確認商品、整理報價、安排購買及到港後收貨方式。" />
+  <meta name="keywords" content="Buy Mate, 拍覓國際網購, 香港代購, 海外商品代購, 美國代購, 英國代購, 日本代購, 韓國代購, TCG 預訂, Pokémon TCG, One Piece TCG, 收藏品預訂, Carousell 代購" />
+  <meta name="theme-color" content="#102A56" />
+
+  <meta property="og:title" content="Buy Mate 專業一站式代購" />
+  <meta property="og:description" content="想買海外商品？提供商品連結，Buy Mate 協助你由查詢、報價到收貨安排一站式跟進。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.buymatehk.com" />
+
+  <style>
+    :root {
+      --bg: #f8f9fc;
+      --paper: #ffffff;
+      --navy: #102a56;
+      --navy-2: #173d74;
+      --ink: #172033;
+      --text: #475467;
+      --muted: #667085;
+      --line: rgba(16, 42, 86, 0.10);
+      --line-strong: rgba(16, 42, 86, 0.16);
+      --blue-soft: #eef4ff;
+      --blue-soft-2: #f4f7ff;
+      --blue-border: #d6e4ff;
+      --green: #067647;
+      --green-soft: #ecfdf3;
+      --shadow: 0 18px 48px rgba(16, 42, 86, 0.08);
+      --shadow-soft: 0 10px 26px rgba(16, 42, 86, 0.055);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --max: 1160px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea {
+      font-family: inherit;
+    }
+
+    .page {
+      min-height: 100vh;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(238, 244, 255, 0.64) 0%, rgba(248, 249, 252, 0) 420px),
+        var(--bg);
+    }
+
+    .container {
+      width: min(100%, var(--max));
+      margin: 0 auto;
+      padding-left: 22px;
+      padding-right: 22px;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(248, 249, 252, 0.92);
+      border-bottom: 1px solid rgba(16, 42, 86, 0.08);
+      backdrop-filter: blur(16px);
+    }
+
+    .nav {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 15px;
+      background: var(--navy);
+      color: #ffffff;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      font-size: 14px;
+      letter-spacing: 0.4px;
+      box-shadow: 0 12px 24px rgba(16, 42, 86, 0.18);
+      flex: 0 0 auto;
+    }
+
+    .brand-name {
+      color: var(--navy);
+      font-weight: 900;
+      font-size: 18px;
+      line-height: 1.15;
+      letter-spacing: -0.2px;
+    }
+
+    .brand-sub {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 12.5px;
+      font-weight: 750;
+      letter-spacing: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: #344054;
+      font-size: 15px;
+      font-weight: 750;
+      white-space: nowrap;
+    }
+
+    .nav-links a {
+      transition: color 0.18s ease, transform 0.18s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--navy);
+    }
+
+    .nav-cta {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 9px 18px;
+      border-radius: 999px;
+      background: var(--navy);
+      color: #ffffff !important;
+      box-shadow: 0 12px 24px rgba(16, 42, 86, 0.16);
+    }
+
+    .hero {
+      padding: 76px 0 56px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 44px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: #ffffff;
+      color: #194185;
+      border: 1px solid var(--blue-border);
+      font-size: 14px;
+      font-weight: 850;
+      margin-bottom: 22px;
+      box-shadow: 0 8px 22px rgba(16, 42, 86, 0.045);
+    }
+
+    .eyebrow-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--green);
+      box-shadow: 0 0 0 4px rgba(6, 118, 71, 0.12);
+    }
+
+    h1 {
+      color: var(--navy);
+      font-size: clamp(38px, 5vw, 66px);
+      line-height: 1.12;
+      letter-spacing: -1.55px;
+      margin-bottom: 22px;
+    }
+
+    .hero-copy {
+      max-width: 700px;
+      color: var(--text);
+      font-size: 19px;
+      line-height: 1.88;
+      margin-bottom: 30px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 12px 22px;
+      border-radius: 999px;
+      font-size: 16px;
+      font-weight: 850;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      color: #ffffff;
+      background: var(--navy);
+      box-shadow: 0 15px 30px rgba(16, 42, 86, 0.20);
+    }
+
+    .btn-secondary {
+      color: var(--navy);
+      background: #ffffff;
+      border-color: var(--line);
+      box-shadow: 0 10px 24px rgba(16, 42, 86, 0.06);
+    }
+
+    .btn-ghost {
+      color: var(--navy);
+      background: transparent;
+      border-color: rgba(16, 42, 86, 0.16);
+    }
+
+    .mini-trust {
+      display: grid;
+      gap: 10px;
+      max-width: 720px;
+    }
+
+    .mini-trust-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: #344054;
+      font-size: 15.5px;
+      font-weight: 680;
+    }
+
+    .check {
+      width: 22px;
+      height: 22px;
+      margin-top: 2px;
+      border-radius: 999px;
+      background: var(--green-soft);
+      color: var(--green);
+      display: grid;
+      place-items: center;
+      font-size: 14px;
+      font-weight: 900;
+      flex: 0 0 auto;
+    }
+
+    .hero-panel {
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid rgba(16, 42, 86, 0.09);
+      border-radius: 34px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .panel-inner {
+      border-radius: 26px;
+      background: #ffffff;
+      border: 1px solid rgba(16, 42, 86, 0.08);
+      padding: 28px;
+    }
+
+    .panel-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .panel-title {
+      color: var(--navy);
+      font-size: 23px;
+      font-weight: 930;
+      letter-spacing: -0.35px;
+      line-height: 1.28;
+    }
+
+    .panel-badge {
+      padding: 7px 11px;
+      border-radius: 999px;
+      color: var(--green);
+      background: var(--green-soft);
+      font-size: 13px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .quick-info {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .quick-info-card {
+      border-radius: 18px;
+      background: var(--blue-soft-2);
+      border: 1px solid var(--blue-border);
+      padding: 14px;
+    }
+
+    .quick-info-card span {
+      display: block;
+      color: #194185;
+      font-size: 12.5px;
+      font-weight: 850;
+      margin-bottom: 4px;
+    }
+
+    .quick-info-card strong {
+      display: block;
+      color: var(--navy);
+      font-size: 15px;
+      font-weight: 900;
+      line-height: 1.35;
+    }
+
+    .flow-list {
+      display: grid;
+      gap: 13px;
+    }
+
+    .flow-item {
+      display: grid;
+      grid-template-columns: 38px 1fr;
+      gap: 14px;
+      align-items: start;
+      padding: 15px;
+      border-radius: 20px;
+      background: #ffffff;
+      border: 1px solid rgba(16, 42, 86, 0.08);
+      box-shadow: 0 7px 20px rgba(16, 42, 86, 0.04);
+    }
+
+    .flow-number {
+      width: 38px;
+      height: 38px;
+      border-radius: 14px;
+      background: var(--blue-soft);
+      color: #194185;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      font-size: 14px;
+    }
+
+    .flow-item strong {
+      display: block;
+      color: var(--ink);
+      font-size: 16px;
+      margin-bottom: 3px;
+    }
+
+    .flow-item p {
+      color: var(--muted);
+      font-size: 14.5px;
+      line-height: 1.6;
+    }
+
+    .regions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 20px;
+    }
+
+    .region {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--blue-soft);
+      color: #194185;
+      border: 1px solid var(--blue-border);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .section {
+      padding: 64px 0;
+    }
+
+    .section-head {
+      max-width: 800px;
+      margin-bottom: 34px;
+    }
+
+    .section-kicker {
+      color: #194185;
+      font-size: 13px;
+      font-weight: 950;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      color: var(--navy);
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.18;
+      letter-spacing: -0.85px;
+      margin-bottom: 14px;
+    }
+
+    .section-desc {
+      color: var(--text);
+      font-size: 18px;
+      line-height: 1.85;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .trust-card {
+      background: #ffffff;
+      border: 1px solid rgba(16, 42, 86, 0.09);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow-soft);
+      min-height: 176px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .trust-card .label {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 780;
+      margin-bottom: 14px;
+    }
+
+    .trust-card .value {
+      color: var(--navy);
+      font-size: 25px;
+      font-weight: 950;
+      line-height: 1.22;
+      letter-spacing: -0.55px;
+    }
+
+    .trust-card .note {
+      color: var(--text);
+      font-size: 14.5px;
+      line-height: 1.65;
+      margin-top: 12px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1.04fr 0.96fr;
+      gap: 18px;
+    }
+
+    .service-card {
+      background: #ffffff;
+      border: 1px solid rgba(16, 42, 86, 0.09);
+      border-radius: 28px;
+      padding: 30px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .service-card.featured {
+      background: var(--navy);
+      color: #ffffff;
+      box-shadow: 0 24px 58px rgba(16, 42, 86, 0.18);
+    }
+
+    .service-label {
+      display: inline-flex;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.10);
+      color: #dbe7ff;
+      font-size: 13px;
+      font-weight: 900;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      margin-bottom: 18px;
+    }
+
+    .service-card:not(.featured) .service-label {
+      background: var(--blue-soft);
+      color: #194185;
+      border-color: var(--blue-border);
+    }
+
+    .service-card h3 {
+      font-size: 27px;
+      line-height: 1.25;
+      margin-bottom: 12px;
+      letter-spacing: -0.45px;
+    }
+
+    .service-card p {
+      opacity: 0.84;
+      font-size: 16.5px;
+      line-height: 1.86;
+      margin-bottom: 22px;
+    }
+
+    .service-card:not(.featured) p {
+      color: var(--text);
+      opacity: 1;
+    }
+
+    .service-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .service-list li {
+      list-style: none;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: inherit;
+      font-weight: 680;
+      opacity: 0.94;
+    }
+
+    .service-card:not(.featured) .service-list li {
+      color: #344054;
+    }
+
+    .mode-note {
+      margin-top: 18px;
+      padding: 16px 18px;
+      border-radius: 20px;
+      background: var(--blue-soft-2);
+      border: 1px solid var(--blue-border);
+      color: #344054;
+      font-size: 15.5px;
+      font-weight: 680;
+      line-height: 1.75;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .step-card {
+      position: relative;
+      min-height: 230px;
+      background: #ffffff;
+      border: 1px solid rgba(16, 42, 86, 0.09);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+
+    .step-card::after {
+      content: "";
+      position: absolute;
+      width: 106px;
+      height: 106px;
+      right: -46px;
+      bottom: -48px;
+      border-radius: 999px;
+      background: rgba(238, 244, 255, 0.72);
+    }
+
+    .step-no {
+      position: relative;
+      z-index: 1;
+      display: inline-grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 16px;
+      background: var(--blue-soft);
+      color: #194185;
+      font-weight: 950;
+      margin-bottom: 18px;
+    }
+
+    .step-card h3 {
+      position: relative;
+      z-index: 1;
+      color: var(--navy);
+      font-size: 20px;
+      line-height: 1.35;
+      margin-bottom: 10px;
+    }
+
+    .step-card p {
+      position: relative;
+      z-index: 1;
+      color: var(--text);
+      font-size: 15.5px;
+      line-height: 1.75;
+    }
+
+    .notice {
+      background: #ffffff;
+      border: 1px solid rgba(16, 42, 86, 0.09);
+      border-radius: 30px;
+      padding: 30px;
+      box-shadow: var(--shadow-soft);
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 26px;
+      align-items: start;
+    }
+
+    .notice-side {
+      padding: 26px;
+      border-radius: 24px;
+      background: var(--blue-soft);
+      border: 1px solid var(--blue-border);
+    }
+
+    .notice-side h3 {
+      color: var(--navy);
+      font-size: 25px;
+      line-height: 1.25;
+      margin-bottom: 10px;
+      letter-spacing: -0.4px;
+    }
+
+    .notice-side p {
+      color: #344054;
+      font-size: 16px;
+      line-height: 1.82;
+    }
+
+    .notice-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .notice-item {
+      display: flex;
+      gap: 12px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(16, 42, 86, 0.08);
+    }
+
+    .notice-item:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .notice-item strong {
+      display: block;
+      color: var(--navy);
+      font-size: 17px;
+      margin-bottom: 4px;
+    }
+
+    .notice-item p {
+      color: var(--text);
+      font-size: 15.5px;
+      line-height: 1.75;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .faq-card {
+      background: #ffffff;
+      border: 1px solid rgba(16, 42, 86, 0.09);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 10px 28px rgba(16, 42, 86, 0.052);
+    }
+
+    .faq-card h3 {
+      color: var(--navy);
+      font-size: 18px;
+      line-height: 1.45;
+      margin-bottom: 8px;
+    }
+
+    .faq-card p {
+      color: var(--text);
+      font-size: 15.5px;
+      line-height: 1.82;
+    }
+
+    .cta-section {
+      padding: 70px 0 78px;
+    }
+
+    .cta-box {
+      border-radius: 34px;
+      background: var(--navy);
+      color: #ffffff;
+      padding: 46px;
+      display: grid;
+      grid-template-columns: 1.14fr 0.86fr;
+      gap: 24px;
+      align-items: center;
+      box-shadow: 0 26px 64px rgba(16, 42, 86, 0.22);
+    }
+
+    .cta-box h2 {
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.16;
+      letter-spacing: -0.8px;
+      margin-bottom: 14px;
+    }
+
+    .cta-box p {
+      max-width: 720px;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 18px;
+      line-height: 1.86;
+    }
+
+    .cta-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .cta-actions .btn-primary {
+      background: #ffffff;
+      color: var(--navy);
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.14);
+    }
+
+    .cta-actions .btn-secondary {
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.20);
+      box-shadow: none;
+    }
+
+    footer {
+      padding: 34px 0;
+      border-top: 1px solid rgba(16, 42, 86, 0.08);
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.50);
+      font-size: 14px;
+    }
+
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer-brand {
+      color: var(--navy);
+      font-weight: 850;
+      margin-bottom: 4px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      color: #344054;
+      font-weight: 760;
+    }
+
+    .mobile-cta {
+      display: none;
+      position: fixed;
+      left: 14px;
+      right: 14px;
+      bottom: 14px;
+      z-index: 60;
+      min-height: 52px;
+      border-radius: 999px;
+      background: var(--navy);
+      color: #ffffff;
+      box-shadow: 0 18px 42px rgba(16, 42, 86, 0.28);
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+    }
+
+    @media (max-width: 980px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 52px;
+      }
+
+      .hero-grid,
+      .services-grid,
+      .notice,
+      .cta-box {
+        grid-template-columns: 1fr;
+      }
+
+      .trust-grid,
+      .steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .cta-actions {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 680px) {
+      body {
+        padding-bottom: 82px;
+      }
+
+      .container {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .topbar {
+        position: relative;
+      }
+
+      .nav {
+        min-height: 68px;
+      }
+
+      .brand-mark {
+        width: 40px;
+        height: 40px;
+        border-radius: 14px;
+      }
+
+      .brand-name {
+        font-size: 16px;
+      }
+
+      .brand-sub {
+        font-size: 12px;
+      }
+
+      .hero {
+        padding: 44px 0 38px;
+      }
+
+      h1 {
+        font-size: 38px;
+        letter-spacing: -1.1px;
+      }
+
+      .hero-copy,
+      .section-desc,
+      .cta-box p {
+        font-size: 16.5px;
+      }
+
+      .hero-actions .btn,
+      .cta-actions .btn {
+        width: 100%;
+      }
+
+      .hero-panel {
+        border-radius: 28px;
+        padding: 16px;
+      }
+
+      .panel-inner {
+        border-radius: 22px;
+        padding: 20px;
+      }
+
+      .panel-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .quick-info {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 50px 0;
+      }
+
+      .trust-grid,
+      .steps-grid,
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .notice {
+        padding: 20px;
+        border-radius: 26px;
+      }
+
+      .notice-side {
+        padding: 20px;
+      }
+
+      .cta-box {
+        padding: 30px 22px;
+        border-radius: 28px;
+      }
+
+      .footer-grid {
+        display: grid;
+        gap: 14px;
+      }
+
+      .mobile-cta {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div class="container nav">
+        <a class="brand" href="#top" aria-label="Buy Mate 首頁">
+          <div class="brand-mark">BM</div>
+          <div>
+            <div class="brand-name">Buy Mate</div>
+            <span class="brand-sub">專業一站式代購</span>
+          </div>
+        </a>
+
+        <nav class="nav-links" aria-label="網站導覽">
+          <a href="#services">服務</a>
+          <a href="#process">流程</a>
+          <a href="#trust">信任保障</a>
+          <a href="#faq">常見問題</a>
+          <a class="nav-cta" href="#" data-whatsapp-link>立即查詢</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <div class="eyebrow">
+              <span class="eyebrow-dot"></span>
+              香港海外商品代購｜330+ Carousell 五星好評
+            </div>
+
+            <h1>想買海外商品？<br>提供連結，Buy Mate 幫你一站式跟進</h1>
+
+            <p class="hero-copy">
+              你只需提供商品連結及基本要求，Buy Mate 會協助確認商品資料、整理報價，並按實際情況跟進購買及收貨安排。適合想買海外商品，但不想自行處理繁複流程的香港客人。
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#" data-whatsapp-link>發送商品連結查詢</a>
+              <a class="btn btn-secondary" href="#process">查看服務流程</a>
+              <a class="btn btn-ghost" href="https://www.carousell.com.hk/u/buymate.hk/" target="_blank" rel="noopener noreferrer">查看 Carousell</a>
+            </div>
+
+            <div class="mini-trust">
+              <div class="mini-trust-item">
+                <span class="check">✓</span>
+                <span>持有效香港商業登記，並以穩定、清晰、有跟進的方式處理客人查詢。</span>
+              </div>
+              <div class="mini-trust-item">
+                <span class="check">✓</span>
+                <span>支援美國、英國、加拿大、澳洲、日本、韓國、中國內地、泰國及歐洲地區商品查詢。</span>
+              </div>
+              <div class="mini-trust-item">
+                <span class="check">✓</span>
+                <span>靈活收貨方式：順豐站、順豐智能櫃或上門派送。</span>
+              </div>
+            </div>
+          </div>
+
+          <aside class="hero-panel" aria-label="Buy Mate 服務摘要">
+            <div class="panel-inner">
+              <div class="panel-header">
+                <div class="panel-title">一個商品連結，開始代購查詢</div>
+                <div class="panel-badge">先確認・再付款</div>
+              </div>
+
+              <div class="quick-info" aria-label="查詢資料提示">
+                <div class="quick-info-card">
+                  <span>建議提供</span>
+                  <strong>商品連結｜款式｜數量</strong>
+                </div>
+                <div class="quick-info-card">
+                  <span>收貨方式</span>
+                  <strong>順豐站｜智能櫃｜上門</strong>
+                </div>
+              </div>
+
+              <div class="flow-list">
+                <div class="flow-item">
+                  <div class="flow-number">01</div>
+                  <div>
+                    <strong>傳送商品資料</strong>
+                    <p>透過 WhatsApp 或 Carousell PM 發送商品頁面、款式、數量及要求。</p>
+                  </div>
+                </div>
+
+                <div class="flow-item">
+                  <div class="flow-number">02</div>
+                  <div>
+                    <strong>確認能否安排及初步報價</strong>
+                    <p>本店會按商品、平台、地區及實際情況回覆。</p>
+                  </div>
+                </div>
+
+                <div class="flow-item">
+                  <div class="flow-number">03</div>
+                  <div>
+                    <strong>確認付款後跟進流程</strong>
+                    <p>由本店協助處理後續購買、到港及香港收貨安排。</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="regions" aria-label="可查詢地區">
+                <span class="region">美國</span>
+                <span class="region">英國</span>
+                <span class="region">歐洲</span>
+                <span class="region">加拿大</span>
+                <span class="region">澳洲</span>
+                <span class="region">日本</span>
+                <span class="region">韓國</span>
+                <span class="region">中國內地</span>
+                <span class="region">泰國</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section" id="trust">
+        <div class="container">
+          <div class="section-head">
+            <div class="section-kicker">Why Buy Mate</div>
+            <h2 class="section-title">用更清晰的方法，處理海外購物查詢</h2>
+            <p class="section-desc">
+              代購最重要不只是報價，而是清楚溝通、穩定跟進和到港後的收貨安排。Buy Mate 以香港客人的實際需要出發，讓整個查詢及購買流程更容易掌握。
+            </p>
+          </div>
+
+          <div class="trust-grid">
+            <div class="trust-card">
+              <div>
+                <div class="label">客戶評價基礎</div>
+                <div class="value">330+ Carousell 五星好評</div>
+              </div>
+              <div class="note">累積真實交易評價，適合新客作初步參考。</div>
+            </div>
+
+            <div class="trust-card">
+              <div>
+                <div class="label">營運身份</div>
+                <div class="value">持有效香港商業登記</div>
+              </div>
+              <div class="note">以正式營運方式提供海外商品代購及預訂服務。</div>
+            </div>
+
+            <div class="trust-card">
+              <div>
+                <div class="label">流程跟進</div>
+                <div class="value">查詢、報價、收貨安排</div>
+              </div>
+              <div class="note">由商品確認至到港後交收，按實際情況清楚跟進。</div>
+            </div>
+
+            <div class="trust-card">
+              <div>
+                <div class="label">香港收貨方式</div>
+                <div class="value">順豐站・智能櫃・上門派送</div>
+              </div>
+              <div class="note">到港後可按商品尺寸、重量及客人需要安排。</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="services">
+        <div class="container">
+          <div class="section-head">
+            <div class="section-kicker">Services</div>
+            <h2 class="section-title">主打海外商品代購，其次提供收藏品及 TCG 預訂</h2>
+            <p class="section-desc">
+              品牌官網、百貨公司、零售平台、限定商品頁面或收藏品預訂均可先查詢。本店會按商品類型、地區、平台規則及物流安排確認是否適合處理。
+            </p>
+          </div>
+
+          <div class="services-grid">
+            <article class="service-card featured">
+              <span class="service-label">主要服務</span>
+              <h3>海外商品代購</h3>
+              <p>
+                適合想購買海外網站商品，但不想自行處理查詢、報價、購買及收貨安排的客人。你提供商品連結，本店協助確認細節及整理報價。
+              </p>
+
+              <ul class="service-list">
+                <li><span class="check">✓</span><span>支援品牌官網、百貨公司、零售平台及限定商品頁面查詢</span></li>
+                <li><span class="check">✓</span><span>付款前先確認報價及基本安排</span></li>
+                <li><span class="check">✓</span><span>到港後可按情況安排順豐站、智能櫃或上門派送</span></li>
+              </ul>
+            </article>
+
+            <article class="service-card">
+              <span class="service-label">精選預訂</span>
+              <h3>TCG / 收藏品預訂</h3>
+              <p>
+                精選 Pokémon、One Piece、運動卡、玩具及收藏品等熱門商品。預訂商品一般會以頁面列明價格出售，代購查詢則會按商品連結另行報價。
+              </p>
+
+              <ul class="service-list">
+                <li><span class="check">✓</span><span>適合 TCG、收藏卡、玩具及限定商品查詢</span></li>
+                <li><span class="check">✓</span><span>預訂項目會清楚列明價格、預計到港時間及交收安排</span></li>
+                <li><span class="check">✓</span><span>貨量、價格及到港時間會按實際供應情況調整</span></li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="mode-note">
+            代購查詢會按客人提供的商品連結確認及報價；精選預訂商品則一般以頁面列明價格出售。不同商品、地區及平台規則或會影響最終安排。
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="process">
+        <div class="container">
+          <div class="section-head">
+            <div class="section-kicker">Process</div>
+            <h2 class="section-title">四步完成代購查詢</h2>
+            <p class="section-desc">
+              我們盡量把查詢流程簡化。你提供商品資料，本店回覆可行性及報價；確認後再進入後續安排。
+            </p>
+          </div>
+
+          <div class="steps-grid">
+            <div class="step-card">
+              <div class="step-no">01</div>
+              <h3>提供商品連結</h3>
+              <p>請提供商品頁面、款式、顏色、尺寸、數量及任何特別要求，資料越清楚，報價越準確。</p>
+            </div>
+
+            <div class="step-card">
+              <div class="step-no">02</div>
+              <h3>確認及報價</h3>
+              <p>本店會按商品、網站、地區及實際安排確認是否可處理，並提供清晰報價或初步說明。</p>
+            </div>
+
+            <div class="step-card">
+              <div class="step-no">03</div>
+              <h3>付款確認</h3>
+              <p>客人確認報價及付款後，本店會按確認次序處理相關安排。</p>
+            </div>
+
+            <div class="step-card">
+              <div class="step-no">04</div>
+              <h3>到港及收貨</h3>
+              <p>商品到港後會通知客人，並按情況安排順豐站、順豐智能櫃或上門派送。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="notice">
+        <div class="container">
+          <div class="notice">
+            <div class="notice-side">
+              <h3>查詢前可以先準備這些資料</h3>
+              <p>
+                清楚的商品資料可以減少來回確認時間，亦有助本店更快判斷是否可以安排及提供較準確的報價。
+              </p>
+            </div>
+
+            <div class="notice-list">
+              <div class="notice-item">
+                <span class="check">✓</span>
+                <div>
+                  <strong>商品連結及規格</strong>
+                  <p>請提供完整商品連結、款式、尺寸、顏色、數量，以及是否接受替代款式或缺貨安排。</p>
+                </div>
+              </div>
+
+              <div class="notice-item">
+                <span class="check">✓</span>
+                <div>
+                  <strong>時間及物流說明</strong>
+                  <p>海外商品代購一般約 2–3 星期到港；日本、中國內地等部分地區有機會較快。實際時間會因網店出貨、清關及物流安排而有所不同。</p>
+                </div>
+              </div>
+
+              <div class="notice-item">
+                <span class="check">✓</span>
+                <div>
+                  <strong>到港費用及收貨方式</strong>
+                  <p>到港相關費用會按商品實際包裝、重量或體積重量，以及當次物流安排確認。香港收貨可按情況安排順豐站、順豐智能櫃或上門派送。</p>
+                </div>
+              </div>
+
+              <div class="notice-item">
+                <span class="check">✓</span>
+                <div>
+                  <strong>商品限制及特別情況</strong>
+                  <p>部分大型、易碎、特別包裝或受平台限制的商品，或需另行確認是否適合安排。</p>
+                </div>
+              </div>
+
+              <div class="notice-item">
+                <span class="check">✓</span>
+                <div>
+                  <strong>付款方式</strong>
+                  <p>支援 PayMe、AlipayHK 及 FPS 轉數快。具體付款安排會於確認報價時一併說明。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="faq">
+        <div class="container">
+          <div class="section-head">
+            <div class="section-kicker">FAQ</div>
+            <h2 class="section-title">常見問題</h2>
+            <p class="section-desc">
+              以下是客人查詢前最常問的問題。如你的商品比較特別，建議直接傳送連結查詢。
+            </p>
+          </div>
+
+          <div class="faq-grid">
+            <div class="faq-card">
+              <h3>是否所有海外商品都可以代購？</h3>
+              <p>不是所有商品都一定可以安排。能否處理會視乎商品類型、網站規則、地區限制、付款安排及物流限制而定，最終以本店確認為準。</p>
+            </div>
+
+            <div class="faq-card">
+              <h3>查詢時提供甚麼資料會比較快回覆？</h3>
+              <p>請提供商品連結、款式、顏色、尺寸、數量及希望收貨方式。如商品有多個版本，請截圖或標明指定款式。</p>
+            </div>
+
+            <div class="faq-card">
+              <h3>一般多久可以到香港？</h3>
+              <p>海外商品代購一般約 2–3 星期到港；部分地區或商品有機會較快或較慢。實際時間會受網店出貨速度、清關及物流安排影響。</p>
+            </div>
+
+            <div class="faq-card">
+              <h3>是否付款前會知道大概費用？</h3>
+              <p>一般查詢會先確認商品及基本費用安排，讓客人清楚了解後才決定是否付款。到港相關費用則會按實際商品包裝、重量或體積重量及當次物流安排確認。</p>
+            </div>
+
+            <div class="faq-card">
+              <h3>可以怎樣收貨？</h3>
+              <p>本店提供靈活收貨方式：順豐站、順豐智能櫃或上門派送。實際安排會按商品尺寸、重量及客人需要確認。</p>
+            </div>
+
+            <div class="faq-card">
+              <h3>TCG / 收藏品預訂是否需要逐件報價？</h3>
+              <p>精選預訂商品一般會以頁面列明價格出售；如果是客人指定商品連結或特別來源，則會按代購查詢方式另行確認。</p>
+            </div>
+
+            <div class="faq-card">
+              <h3>可以透過 Carousell 查詢嗎？</h3>
+              <p>可以。你可以透過 WhatsApp 或 Carousell PM 查詢。建議提供商品連結及要求，方便本店更快回覆。</p>
+            </div>
+
+            <div class="faq-card">
+              <h3>支援哪些地區商品查詢？</h3>
+              <p>目前可查詢美國、英國、歐洲、加拿大、澳洲、日本、韓國、中國內地及泰國等地商品。部分地區或網站需按實際情況確認。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-section" id="contact">
+        <div class="container">
+          <div class="cta-box">
+            <div>
+              <h2>有想買的海外商品？先把連結發給我們</h2>
+              <p>
+                請提供商品連結、款式、數量及希望的收貨方式。本店會按實際情況回覆能否安排、初步費用及下一步流程。
+              </p>
+            </div>
+
+            <div class="cta-actions">
+              <a class="btn btn-primary" href="#" data-whatsapp-link>發送商品連結查詢</a>
+              <a class="btn btn-secondary" href="https://www.carousell.com.hk/u/buymate.hk/" target="_blank" rel="noopener noreferrer">Carousell 查詢</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-grid">
+        <div>
+          <div class="footer-brand">拍覓國際網購（香港）Buy Mate Ecommerce International (HK)</div>
+          <div>Buy Mate 專業一站式代購｜海外商品代購｜TCG 及收藏品預訂</div>
+        </div>
+
+        <div class="footer-links">
+          <a href="mailto:buymate.hk@gmail.com">Email</a>
+          <a href="https://www.carousell.com.hk/u/buymate.hk/" target="_blank" rel="noopener noreferrer">Carousell</a>
+          <a href="#" data-whatsapp-link>WhatsApp</a>
+        </div>
+      </div>
+    </footer>
+
+    <a class="mobile-cta" href="#" data-whatsapp-link>發送連結查詢</a>
+  </div>
+
+  <script>
+    /*
+      使用前請修改這一行：
+      例子：const WHATSAPP_NUMBER = "85291234567";
+      不要加入 +、空格、括號或破折號。
+    */
+    const WHATSAPP_NUMBER = "852XXXXXXXX";
+
+    const WHATSAPP_MESSAGE = "你好，我想查詢 Buy Mate 海外代購服務。商品連結如下：";
+    const whatsappLinks = document.querySelectorAll("[data-whatsapp-link]");
+
+    whatsappLinks.forEach(function (link) {
+      if (WHATSAPP_NUMBER.includes("X")) {
+        link.setAttribute("href", "#");
+        link.addEventListener("click", function (event) {
+          event.preventDefault();
+          alert("請先在 index.html 內把 WHATSAPP_NUMBER 改成你的 WhatsApp 號碼，例如 85291234567。");
+        });
+      } else {
+        const url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(WHATSAPP_MESSAGE);
+        link.setAttribute("href", url);
+        link.setAttribute("target", "_blank");
+        link.setAttribute("rel", "noopener noreferrer");
+      }
+    });
+  </script>
+</body>
+</html>
