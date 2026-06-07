@@ -1,0 +1,2041 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Buy Mate 專業一站式代購｜海外商品代購服務</title>
+  <meta name="description" content="Buy Mate 提供海外商品代購服務。你提供商品連結，本店協助確認能否安排、整理報價，並跟進到港後收貨安排。" />
+  <meta name="keywords" content="Buy Mate, 拍覓國際網購, 香港代購, 澳門代購, 海外商品代購, 美國代購, 英國代購, 日本代購, 韓國代購, 代購服務, Carousell 代購" />
+  <meta name="theme-color" content="#0B192C" />
+  <link rel="canonical" href="https://www.buymatehk.com/" />
+
+  <meta property="og:title" content="Buy Mate 專業一站式代購" />
+  <meta property="og:description" content="想買海外商品？提供商品連結，Buy Mate 協助你確認、報價及跟進收貨安排。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.buymatehk.com/" />
+
+  <style>
+    :root {
+      --navy: #0b192c;
+      --navy-2: #16385f;
+      --navy-3: #1e4c7a;
+      --accent: #5fd1c2;
+      --accent-hover: #72ddcf;
+      --accent-soft: #e8fbf7;
+      --mint: #5fd1c2;
+      --warm-2: #e8fbf7;
+      --ivory: #fbfaf6;
+      --paper: #ffffff;
+      --soft: #f6f8fb;
+      --line: rgba(11, 25, 44, 0.10);
+      --line-light: rgba(255, 255, 255, 0.18);
+      --ink: #172033;
+      --text: #4a5568;
+      --muted: #748094;
+      --green: #0f8a68;
+      --green-soft: #eaf8f1;
+      --blue-soft: #eef5ff;
+      --shadow: 0 20px 50px rgba(11, 25, 44, 0.10);
+      --shadow-soft: 0 12px 28px rgba(11, 25, 44, 0.07);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--ivory);
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .container {
+      width: min(100%, var(--max));
+      margin: 0 auto;
+      padding-left: 22px;
+      padding-right: 22px;
+    }
+
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 60;
+      transition: background 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      border-bottom: 1px solid transparent;
+    }
+
+    .nav.is-scrolled {
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(14px);
+      border-color: rgba(11, 25, 44, 0.08);
+      box-shadow: 0 12px 28px rgba(11, 25, 44, 0.06);
+    }
+
+    .nav-inner {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: #fff;
+      transition: color 0.25s ease;
+      min-width: 0;
+    }
+
+    .nav.is-scrolled .brand {
+      color: var(--navy);
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 15px;
+      display: grid;
+      place-items: center;
+      background: rgba(255, 255, 255, 0.12);
+      color: var(--accent);
+      border: 1px solid rgba(255, 255, 255, 0.20);
+      font-weight: 900;
+      font-size: 13px;
+      letter-spacing: 0.4px;
+      flex: 0 0 auto;
+      transition: background 0.25s ease, border-color 0.25s ease;
+    }
+
+    .nav.is-scrolled .brand-mark {
+      background: var(--navy);
+      color: #fff;
+      border-color: var(--navy);
+    }
+
+    .text-brand {
+      padding-left: 2px;
+    }
+
+    .brand-text strong {
+      display: block;
+      font-size: clamp(17px, 1.75vw, 22px);
+      line-height: 1.12;
+      letter-spacing: -0.55px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .brand-text span {
+      display: block;
+      font-size: clamp(11.5px, 1.1vw, 13px);
+      margin-top: 5px;
+      opacity: 0.78;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 14.5px;
+      font-weight: 700;
+      transition: color 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .nav.is-scrolled .nav-links {
+      color: #455468;
+    }
+
+    .nav-link {
+      transition: color 0.2s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--accent);
+    }
+
+    .nav.is-scrolled .nav-link:hover {
+      color: var(--navy);
+    }
+
+    .nav-cta {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 9px 18px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: var(--navy) !important;
+      font-weight: 900;
+      box-shadow: 0 12px 26px rgba(95, 209, 194, 0.24);
+    }
+
+    .mobile-menu-button {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: color 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+    }
+
+    .nav.is-scrolled .mobile-menu-button {
+      color: var(--navy);
+      background: #fff;
+      border-color: var(--line);
+    }
+
+    .menu-lines {
+      width: 18px;
+      height: 14px;
+      position: relative;
+    }
+
+    .menu-lines::before,
+    .menu-lines::after,
+    .menu-lines span {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 18px;
+      height: 2px;
+      border-radius: 999px;
+      background: currentColor;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .menu-lines::before {
+      top: 0;
+    }
+
+    .menu-lines span {
+      top: 6px;
+    }
+
+    .menu-lines::after {
+      bottom: 0;
+    }
+
+    .mobile-menu-button.is-open .menu-lines::before {
+      transform: translateY(6px) rotate(45deg);
+    }
+
+    .mobile-menu-button.is-open .menu-lines span {
+      opacity: 0;
+    }
+
+    .mobile-menu-button.is-open .menu-lines::after {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+    .mobile-menu {
+      display: none;
+      background: #fff;
+      border-top: 1px solid var(--line);
+      box-shadow: 0 18px 34px rgba(11, 25, 44, 0.12);
+    }
+
+    .mobile-menu.is-open {
+      display: block;
+    }
+
+    .mobile-menu-inner {
+      padding: 10px 22px 22px;
+      display: grid;
+      gap: 8px;
+      text-align: center;
+    }
+
+    .mobile-menu a {
+      padding: 12px 14px;
+      border-radius: 14px;
+      color: #344054;
+      font-weight: 800;
+    }
+
+    .mobile-menu a:hover {
+      background: var(--soft);
+    }
+
+    .mobile-menu .mobile-cta-menu {
+      background: var(--navy);
+      color: #fff;
+      margin-top: 8px;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 720px;
+      padding: 148px 0 92px;
+      background:
+        linear-gradient(135deg, rgba(11, 25, 44, 0.98) 0%, rgba(30, 62, 98, 0.96) 100%);
+      overflow: hidden;
+      color: #fff;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+      background-size: 30px 30px;
+      opacity: 0.52;
+      pointer-events: none;
+    }
+    .hero::after {
+      content: none;
+      display: none;
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      justify-items: center;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.10);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: var(--accent-soft);
+      font-size: 14px;
+      font-weight: 800;
+      margin-bottom: 28px;
+      backdrop-filter: blur(12px);
+    }
+
+    .eyebrow-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(95, 209, 194, 0.16);
+    }
+
+    h1 {
+      max-width: 980px;
+      font-size: clamp(42px, 6vw, 72px);
+      line-height: 1.18;
+      letter-spacing: -1.7px;
+      margin-bottom: 24px;
+      font-weight: 900;
+    }
+
+    .hero-highlight {
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .hero-copy {
+      max-width: 760px;
+      margin: 0 auto;
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 19px;
+      line-height: 1.92;
+      font-weight: 400;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 38px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 13px 24px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-size: 16px;
+      font-weight: 900;
+      cursor: pointer;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--navy);
+      box-shadow: 0 16px 36px rgba(95, 209, 194, 0.28);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.10);
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.24);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.16);
+    }
+
+    .quick-enquiry {
+      margin-top: -78px;
+      position: relative;
+      z-index: 3;
+    }
+
+    .quick-card {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 26px;
+      align-items: center;
+      padding: 28px;
+      border-radius: var(--radius-xl);
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid rgba(11, 25, 44, 0.08);
+      box-shadow: var(--shadow);
+    }
+
+    .quick-left {
+      padding: 8px 8px 8px 4px;
+    }
+
+    .quick-label {
+      display: inline-flex;
+      margin-bottom: 14px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      color: var(--green);
+      background: var(--green-soft);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .quick-left h2 {
+      color: var(--navy);
+      font-size: 28px;
+      line-height: 1.25;
+      letter-spacing: -0.45px;
+      margin-bottom: 12px;
+    }
+
+    .quick-left p {
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.82;
+    }
+
+    .quick-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .quick-step {
+      padding: 18px;
+      border-radius: 22px;
+      background: var(--soft);
+      border: 1px solid rgba(11, 25, 44, 0.07);
+      min-height: 150px;
+    }
+
+    .quick-step span {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 14px;
+      background: #fff;
+      color: var(--navy);
+      font-weight: 900;
+      box-shadow: 0 8px 16px rgba(11, 25, 44, 0.06);
+      margin-bottom: 12px;
+    }
+
+    .quick-step strong {
+      display: block;
+      color: var(--ink);
+      line-height: 1.4;
+      margin-bottom: 6px;
+      font-size: 15.5px;
+    }
+
+    .quick-step p {
+      color: var(--muted);
+      font-size: 13.5px;
+      line-height: 1.55;
+    }
+
+    .quick-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .quick-actions .btn {
+      min-height: 46px;
+      font-size: 14.5px;
+      padding: 10px 18px;
+    }
+
+    .quick-actions .btn-secondary {
+      color: var(--navy);
+      background: #fff;
+      border-color: var(--line);
+    }
+
+    .section {
+      padding: 86px 0;
+    }
+
+    .section-head {
+      max-width: 760px;
+      margin: 0 auto 48px;
+      text-align: center;
+    }
+
+    .section-kicker {
+      display: block;
+      color: var(--mint);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      color: var(--navy);
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.22;
+      letter-spacing: -0.9px;
+      margin-bottom: 14px;
+      font-weight: 900;
+    }
+
+    .section-desc {
+      color: var(--text);
+      font-size: 17.5px;
+      line-height: 1.86;
+    }
+
+    .service-grid {
+      max-width: 1040px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+
+    .service-card {
+      background: #fff;
+      border: 1px solid rgba(11, 25, 44, 0.08);
+      border-radius: 28px;
+      padding: 34px;
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 42px rgba(11, 25, 44, 0.10);
+    }
+
+    .service-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+
+    .service-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      background: var(--blue-soft);
+      color: var(--navy);
+      font-weight: 900;
+      font-size: 20px;
+      flex: 0 0 auto;
+    }
+
+    .service-tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 5px 11px;
+      border-radius: 999px;
+      background: var(--soft);
+      color: var(--muted);
+      border: 1px solid rgba(11, 25, 44, 0.07);
+      font-size: 12.5px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .service-tag.primary {
+      background: var(--accent-soft);
+      color: var(--green);
+      border-color: rgba(95, 209, 194, 0.22);
+    }
+
+    .service-card:nth-child(2) .service-icon {
+      background: var(--blue-soft);
+    }
+
+    .service-card h3 {
+      color: var(--ink);
+      font-size: 23px;
+      line-height: 1.32;
+      margin-bottom: 12px;
+      letter-spacing: -0.4px;
+    }
+
+    .service-card p {
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.85;
+      margin-bottom: 20px;
+    }
+
+    .service-list {
+      list-style: none;
+      display: grid;
+      gap: 11px;
+      color: #344054;
+      font-size: 14.5px;
+      font-weight: 700;
+    }
+
+    .service-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .check {
+      width: 19px;
+      height: 19px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: var(--green-soft);
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 900;
+      margin-top: 3px;
+      flex: 0 0 auto;
+    }
+
+    .country-panel {
+      max-width: 1040px;
+      margin: 24px auto 0;
+      padding: 24px 26px;
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(11, 25, 44, 0.08);
+      box-shadow: 0 10px 28px rgba(11, 25, 44, 0.045);
+    }
+
+    .country-panel h3 {
+      color: var(--navy);
+      font-size: 18px;
+      line-height: 1.35;
+      margin-bottom: 12px;
+      letter-spacing: -0.2px;
+    }
+
+    .country-panel p {
+      color: var(--text);
+      font-size: 15.5px;
+      line-height: 1.78;
+      margin-bottom: 16px;
+    }
+
+    .country-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .country-pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 7px 13px;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid rgba(11, 25, 44, 0.08);
+      color: #344054;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .process {
+      background: #fff;
+    }
+
+    .process-layout {
+      display: grid;
+      grid-template-columns: 0.86fr 1.14fr;
+      gap: 70px;
+      align-items: start;
+    }
+
+    .process-copy {
+      position: sticky;
+      top: 110px;
+    }
+
+    .process-copy .section-head {
+      text-align: left;
+      margin: 0;
+      max-width: 430px;
+    }
+
+    .process-actions {
+      margin-top: 26px;
+    }
+
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 34px;
+      padding-left: 4px;
+    }
+
+    .timeline-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: 58px 1fr;
+      gap: 18px;
+      min-height: 112px;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: 28px;
+      top: 58px;
+      bottom: -34px;
+      width: 2px;
+      background: #e4e8ef;
+    }
+
+    .timeline-item:last-child::before {
+      display: none;
+    }
+
+    .timeline-mark {
+      width: 56px;
+      height: 56px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: var(--navy);
+      box-shadow: 0 12px 26px rgba(11, 25, 44, 0.18);
+      z-index: 1;
+      font-weight: 900;
+      font-size: 15px;
+    }
+
+    .timeline-item:not(:first-child) .timeline-mark {
+      background: #fff;
+      color: var(--navy);
+      border: 2px solid var(--navy);
+      box-shadow: 0 8px 18px rgba(11, 25, 44, 0.08);
+    }
+
+    .timeline-item:last-child .timeline-mark {
+      background: var(--accent);
+      color: var(--navy);
+      border: 0;
+    }
+
+    .timeline-card {
+      padding: 2px 0 0;
+    }
+
+    .timeline-card h3 {
+      color: var(--ink);
+      font-size: 21px;
+      line-height: 1.35;
+      margin-bottom: 6px;
+    }
+
+    .timeline-card p {
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.78;
+    }
+
+    .trust-section {
+      background: var(--soft);
+      border-top: 1px solid rgba(11, 25, 44, 0.06);
+    }
+
+    .trust-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 34px;
+      background: var(--navy);
+      color: #fff;
+      padding: 54px;
+      box-shadow: 0 26px 70px rgba(11, 25, 44, 0.22);
+    }
+
+    .trust-card::before,
+    .trust-card::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      pointer-events: none;
+    }
+
+    .trust-card::before {
+      width: 320px;
+      height: 320px;
+      right: -120px;
+      top: -130px;
+      background: rgba(30, 62, 98, 0.70);
+      filter: blur(18px);
+    }
+
+    .trust-card::after {
+      width: 360px;
+      height: 360px;
+      left: -140px;
+      bottom: -150px;
+      background: rgba(95, 209, 194, 0.12);
+      filter: blur(18px);
+    }
+
+    .trust-inner {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    .stars {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      color: var(--accent);
+      margin-bottom: 22px;
+      font-size: 24px;
+      letter-spacing: 2px;
+    }
+
+    .trust-label {
+      display: inline-flex;
+      margin-bottom: 20px;
+      padding: 7px 13px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.10);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: var(--accent-soft);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+
+    .trust-inner h2 {
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.25;
+      letter-spacing: -0.8px;
+      margin-bottom: 16px;
+    }
+
+    .trust-inner p {
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 17.5px;
+      line-height: 1.85;
+      margin-bottom: 34px;
+    }
+
+    .trust-badges {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .trust-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 52px;
+      padding: 12px 18px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.10);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: #fff;
+      font-weight: 800;
+    }
+
+    .trust-badge.light {
+      background: #fff;
+      color: var(--navy);
+      border-color: #fff;
+    }
+
+    .scenarios-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 12px;
+    }
+
+    .scenario {
+      min-height: 114px;
+      padding: 16px;
+      border-radius: 22px;
+      background: #fff;
+      border: 1px solid rgba(11, 25, 44, 0.08);
+      box-shadow: 0 8px 22px rgba(11, 25, 44, 0.045);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .scenario-dot {
+      width: 24px;
+      height: 24px;
+      border-radius: 10px;
+      background: var(--blue-soft);
+      border: 1px solid rgba(11, 25, 44, 0.06);
+    }
+
+    .scenario:nth-child(2n) .scenario-dot {
+      background: var(--green-soft);
+    }
+
+    .scenario:nth-child(3n) .scenario-dot {
+      background: var(--blue-soft);
+    }
+
+    .scenario strong {
+      color: var(--navy);
+      font-size: 15.2px;
+      line-height: 1.35;
+    }
+
+
+    .platform-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    .platform-card {
+      min-height: 178px;
+      padding: 22px;
+      border-radius: 24px;
+      background: #fff;
+      border: 1px solid rgba(11, 25, 44, 0.08);
+      box-shadow: 0 10px 26px rgba(11, 25, 44, 0.055);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .platform-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 36px rgba(11, 25, 44, 0.09);
+    }
+
+    .platform-logo {
+      color: var(--navy);
+      font-size: 26px;
+      line-height: 1.12;
+      letter-spacing: -0.65px;
+      font-weight: 900;
+    }
+
+    .platform-logo.small {
+      font-size: 21px;
+      letter-spacing: -0.35px;
+    }
+
+    .platform-card p {
+      color: var(--text);
+      font-size: 14.8px;
+      line-height: 1.7;
+    }
+
+    .platform-meta {
+      display: inline-flex;
+      align-self: flex-start;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--green);
+      font-size: 12.5px;
+      font-weight: 800;
+    }
+
+
+    .restricted-shell {
+      max-width: 1040px;
+      margin: 0 auto;
+      display: grid;
+      gap: 16px;
+    }
+
+    .restricted-intro {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 18px;
+      align-items: stretch;
+      margin-bottom: 10px;
+    }
+
+    .restricted-subtle {
+      background: #fff;
+      padding-top: 56px;
+    }
+
+    .restricted-subtle .section-title {
+      font-size: clamp(26px, 3vw, 36px);
+    }
+
+    .restricted-note {
+      border-radius: 28px;
+      padding: 28px;
+      background: #fff;
+      color: var(--ink);
+      border: 1px solid rgba(11, 25, 44, 0.08);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .restricted-note h3 {
+      font-size: 23px;
+      line-height: 1.28;
+      letter-spacing: -0.45px;
+      margin-bottom: 10px;
+      color: var(--navy);
+    }
+
+    .restricted-note p {
+      color: var(--text);
+      font-size: 15.8px;
+      line-height: 1.82;
+    }
+
+    .restricted-help {
+      border-radius: 28px;
+      padding: 28px;
+      background: #fff;
+      border: 1px solid rgba(11, 25, 44, 0.08);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .restricted-help h3 {
+      color: var(--navy);
+      font-size: 23px;
+      line-height: 1.3;
+      letter-spacing: -0.35px;
+      margin-bottom: 10px;
+    }
+
+    .restricted-help p {
+      color: var(--text);
+      font-size: 15.8px;
+      line-height: 1.82;
+    }
+
+    .restricted-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .restricted-list details {
+      box-shadow: none;
+      border-radius: 18px;
+      padding: 16px 18px;
+    }
+
+    .restricted-list summary {
+      font-size: 16px;
+    }
+
+    .restricted-list p {
+      font-size: 15px;
+    }
+
+    .restricted-categories {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .restricted-chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: var(--soft);
+      border: 1px solid rgba(11, 25, 44, 0.07);
+      color: #455468;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .restricted-disclaimer {
+      margin-top: 8px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: var(--warm-2);
+      border: 1px solid rgba(95, 209, 194, 0.24);
+      color: var(--text);
+      font-size: 14.8px;
+      line-height: 1.75;
+    }
+
+    .faq-list {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      gap: 12px;
+    }
+
+    details {
+      background: #fff;
+      border: 1px solid rgba(11, 25, 44, 0.08);
+      border-radius: 20px;
+      padding: 18px 20px;
+      box-shadow: 0 8px 22px rgba(11, 25, 44, 0.045);
+    }
+
+    summary {
+      cursor: pointer;
+      color: var(--navy);
+      font-size: 17px;
+      font-weight: 900;
+      line-height: 1.45;
+      list-style: none;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::after {
+      content: "+";
+      float: right;
+      color: var(--mint);
+      font-weight: 900;
+      margin-left: 12px;
+    }
+
+    details[open] summary::after {
+      content: "−";
+    }
+
+    details p {
+      margin-top: 10px;
+      color: var(--text);
+      font-size: 15.5px;
+      line-height: 1.82;
+    }
+
+    .final-cta {
+      background: #fff;
+      text-align: center;
+    }
+
+    .final-cta h2 {
+      color: var(--navy);
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.22;
+      letter-spacing: -0.9px;
+      margin-bottom: 16px;
+    }
+
+    .final-cta p {
+      color: var(--text);
+      max-width: 720px;
+      margin: 0 auto 32px;
+      font-size: 18px;
+      line-height: 1.85;
+    }
+
+    .low-pressure {
+      display: inline-flex;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 14.5px;
+      font-weight: 700;
+    }
+
+    footer {
+      background: #0a1322;
+      color: rgba(255, 255, 255, 0.62);
+      padding: 42px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .footer-brand strong {
+      display: inline-flex;
+      color: #fff;
+      font-size: 20px;
+      margin-bottom: 8px;
+      font-weight: 900;
+    }
+
+    .footer-brand p {
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .footer-link {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.08);
+      transition: background 0.18s ease, color 0.18s ease;
+      font-weight: 900;
+      font-size: 13px;
+    }
+
+    .footer-link svg {
+      width: 21px;
+      height: 21px;
+      display: block;
+    }
+
+    .footer-link:hover {
+      background: var(--accent);
+      color: var(--navy);
+    }
+
+    .footer-bottom {
+      margin-top: 26px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: 12.5px;
+      color: rgba(255, 255, 255, 0.45);
+    }
+
+    .mobile-fixed-cta {
+      display: none;
+      position: fixed;
+      left: 14px;
+      right: 14px;
+      bottom: 14px;
+      z-index: 70;
+      min-height: 52px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: var(--navy);
+      box-shadow: 0 16px 38px rgba(11, 25, 44, 0.28);
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+    }
+
+    @media (max-width: 1080px) {
+      .nav-links {
+        display: none;
+      }
+
+      .mobile-menu-button {
+        display: inline-flex;
+      }
+
+      .quick-card,
+      .process-layout,
+      .restricted-intro {
+        grid-template-columns: 1fr;
+      }
+
+      .process-copy {
+        position: relative;
+        top: auto;
+      }
+
+      .process-copy .section-head {
+        max-width: 760px;
+        text-align: center;
+        margin: 0 auto;
+      }
+
+      .process-actions {
+        display: none;
+      }
+
+      .quick-steps,
+      .scenarios-grid,
+      .platform-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 760px) {
+      body {
+        padding-bottom: 80px;
+      }
+
+      .container {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .nav {
+        position: fixed;
+      }
+
+      .nav-inner {
+        min-height: 70px;
+      }
+
+      .brand-text strong {
+        font-size: 17px;
+        white-space: normal;
+        line-height: 1.25;
+      }
+
+      .brand-text span {
+        font-size: 11.5px;
+        line-height: 1.35;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 122px 0 104px;
+      }
+
+      h1 {
+        font-size: 40px;
+        letter-spacing: -1.25px;
+      }
+
+      .hero-copy {
+        font-size: 16.5px;
+      }
+
+      .hero-actions .btn,
+      .final-cta .btn {
+        width: 100%;
+      }
+
+      .quick-enquiry {
+        margin-top: -62px;
+      }
+
+      .quick-card {
+        padding: 18px;
+        border-radius: 26px;
+      }
+
+      .quick-steps,
+      .service-grid,
+      .scenarios-grid,
+      .platform-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 64px 0;
+      }
+
+      .section-head {
+        margin-bottom: 32px;
+      }
+
+      .section-desc {
+        font-size: 16.5px;
+      }
+
+      .service-card,
+      .trust-card {
+        padding: 24px;
+        border-radius: 24px;
+      }
+
+      .service-top {
+        margin-bottom: 18px;
+      }
+
+      .country-panel {
+        padding: 20px;
+        border-radius: 24px;
+      }
+
+      .country-list,
+      .restricted-categories {
+        gap: 8px;
+      }
+
+      .country-pill,
+      .restricted-chip {
+        font-size: 13.5px;
+      }
+
+      .timeline-item {
+        grid-template-columns: 50px 1fr;
+        gap: 14px;
+      }
+
+      .timeline-mark {
+        width: 50px;
+        height: 50px;
+      }
+
+      .timeline-item::before {
+        left: 25px;
+        top: 52px;
+      }
+
+      .footer-grid,
+      .footer-bottom {
+        display: grid;
+        text-align: center;
+        justify-content: center;
+      }
+
+      .footer-links {
+        justify-content: center;
+      }
+
+      .mobile-fixed-cta {
+        display: flex;
+      }
+    }
+  </style>
+  <!-- revision: buymate-business-clean-2026-05-26 -->
+</head>
+
+<body>
+  <nav class="nav" id="navbar" aria-label="主導覽">
+    <div class="container">
+      <div class="nav-inner">
+        <a class="brand text-brand" href="#top" aria-label="回到 Buy Mate 首頁">
+          <div class="brand-text">
+            <strong>Buy Mate 專業一站式代購</strong>
+            <span>專業一站式海外商品代購</span>
+          </div>
+        </a>
+
+        <div class="nav-links">
+          <a class="nav-link" href="#services">服務範疇</a>
+          <a class="nav-link" href="#process">代購流程</a>
+          <a class="nav-link" href="#trust">信任保障</a>
+          <a class="nav-link" href="#restricted">代購須知</a>
+          <a class="nav-link" href="#faq">常見問題</a>
+          <a class="nav-cta" href="#" data-whatsapp-link>發送連結查詢</a>
+        </div>
+
+        <button class="mobile-menu-button" id="mobileMenuButton" type="button" aria-label="開啟選單" aria-expanded="false">
+          <span class="menu-lines"><span></span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-inner">
+        <a href="#services">服務範疇</a>
+        <a href="#process">代購流程</a>
+        <a href="#trust">信任保障</a>
+        <a href="#restricted">代購須知</a>
+        <a href="#faq">常見問題</a>
+        <a class="mobile-cta-menu" href="#" data-whatsapp-link>WhatsApp 查詢報價</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <h1>
+            海外商品代購服務<br>
+            <span class="hero-highlight">提供連結即可查詢</span>
+          </h1>
+
+          <p class="hero-copy">
+            海外網站未能直接寄到香港或澳門，或者購買流程較複雜？你只需提供商品連結、款式及數量，Buy Mate 會協助確認能否安排、整理報價，並跟進到港後收貨安排。
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#" data-whatsapp-link>發送商品連結查詢</a>
+            <a class="btn btn-secondary" href="#process">查看代購流程</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quick-enquiry" aria-label="快速查詢提示">
+      <div class="container">
+        <div class="quick-card">
+          <div class="quick-left">
+            <span class="quick-label">查詢前準備</span>
+            <h2>開始查詢前，準備幾項資料就可以</h2>
+            <p>
+              把商品連結、款式及數量發給我們即可。本店會按商品資料、網站規則及實際安排，協助確認能否處理並回覆初步報價。
+            </p>
+
+            <div class="quick-actions">
+              <button class="btn btn-secondary" type="button" id="copyTemplateBtn">複製查詢格式</button>
+              <a class="btn btn-primary" href="#" data-whatsapp-link>WhatsApp 查詢</a>
+            </div>
+          </div>
+
+          <div class="quick-steps">
+            <div class="quick-step">
+              <span>01</span>
+              <strong>商品連結</strong>
+              <p>品牌官網、百貨公司、零售平台或指定商品頁面。</p>
+            </div>
+            <div class="quick-step">
+              <span>02</span>
+              <strong>款式及數量</strong>
+              <p>如有顏色、尺寸、版本或數量要求，請一併提供。</p>
+            </div>
+            <div class="quick-step">
+              <span>03</span>
+              <strong>希望收貨方式</strong>
+              <p>順豐站、智能櫃自取；如需要上門派送，亦可另外安排。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">服務範疇</span>
+          <h2 class="section-title">專業一站式代購服務</h2>
+          <p class="section-desc">
+            主力協助客人查詢及安排海外商品代購。不同商品會按商品類型、平台規則、地區及實際安排確認是否適合處理。
+          </p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card">
+            <div class="service-top">
+              <div class="service-icon">01</div>
+              <span class="service-tag primary">主服務</span>
+            </div>
+            <h3>海外商品代購</h3>
+            <p>
+              適合海外網站未能直接寄到本地，或購買流程較複雜的商品。你提供商品連結，本店協助確認細節、整理報價及跟進後續流程。
+            </p>
+            <ul class="service-list">
+              <li><span class="check">✓</span><span>支援品牌官網、百貨公司、零售平台及限定商品頁面查詢</span></li>
+              <li><span class="check">✓</span><span>付款前先確認報價及基本安排</span></li>
+              <li><span class="check">✓</span><span>到港後可選順豐站、智能櫃自取；如需要上門派送，亦可另外安排</span></li>
+            </ul>
+          </article>
+
+          <article class="service-card">
+            <div class="service-top">
+              <div class="service-icon">02</div>
+              <span class="service-tag">精選預訂</span>
+            </div>
+            <h3>卡牌及玩具預訂</h3>
+            <p>
+              部分卡牌、運動卡、玩具及限定商品可按情況提供預訂查詢。預訂商品一般會以頁面列明價格出售，指定商品則可另行查詢。
+            </p>
+            <ul class="service-list">
+              <li><span class="check">✓</span><span>適合卡牌、運動卡、玩具及限定商品查詢</span></li>
+              <li><span class="check">✓</span><span>預訂項目會盡量清楚列明價格、預計到港時間及收貨安排</span></li>
+              <li><span class="check">✓</span><span>價格、貨量及到港時間會按實際供應情況確認</span></li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="country-panel">
+          <h3>常見查詢地區</h3>
+          <p>客人可先提供指定商品連結。本店會按商品頁面、平台規則及實際情況確認是否適合安排。</p>
+          <div class="country-list" aria-label="常見查詢地區列表">
+            <span class="country-pill">美國</span>
+            <span class="country-pill">英國</span>
+            <span class="country-pill">歐洲</span>
+            <span class="country-pill">加拿大</span>
+            <span class="country-pill">澳洲</span>
+            <span class="country-pill">日本</span>
+            <span class="country-pill">韓國</span>
+            <span class="country-pill">中國內地</span>
+            <span class="country-pill">泰國</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section process" id="process">
+      <div class="container">
+        <div class="process-layout">
+          <div class="process-copy">
+            <div class="section-head">
+              <span class="section-kicker">代購流程</span>
+              <h2 class="section-title">簡單四步，完成海外代購查詢</h2>
+              <p class="section-desc">
+                我們盡量把查詢流程簡化。客人提供商品資料後，本店會回覆可行性、初步報價及下一步安排。
+              </p>
+            </div>
+            <div class="process-actions">
+              <a class="btn btn-primary" href="#" data-whatsapp-link>立即開始查詢</a>
+            </div>
+          </div>
+
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-mark">01</div>
+              <div class="timeline-card">
+                <h3>傳送商品連結</h3>
+                <p>透過 WhatsApp 或 Carousell PM，把商品網址、款式、顏色、尺寸及數量發送給我們。</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-mark">02</div>
+              <div class="timeline-card">
+                <h3>本店確認及整理報價</h3>
+                <p>我們會按商品、網站、地區及實際安排確認是否可處理，並回覆初步費用及安排。</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-mark">03</div>
+              <div class="timeline-card">
+                <h3>確認付款後跟進</h3>
+                <p>客人確認報價及付款後，本店會盡快按確認次序安排及跟進。</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-mark">04</div>
+              <div class="timeline-card">
+                <h3>到港後通知收貨</h3>
+                <p>商品到港後通知客人，可選順豐站、智能櫃自取；如需要上門派送，亦可以另外安排。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section trust-section" id="trust">
+      <div class="container">
+        <div class="trust-card">
+          <div class="trust-inner">
+            <div class="trust-label">信任保障</div>
+            <h2>正式、清晰、有跟進的代購服務</h2>
+            <p>
+              Buy Mate 由拍覓國際網購（香港）營運，重視清晰報價、穩定溝通及到港後收貨安排。客人只需提供商品連結及基本要求，本店會按實際情況回覆可行性、費用及下一步安排。
+            </p>
+
+            <div class="trust-badges">
+              <div class="trust-badge">清晰報價</div>
+              <div class="trust-badge">穩定溝通</div>
+              <a class="trust-badge light" href="https://www.carousell.com.hk/u/buymate.hk/" target="_blank" rel="noopener noreferrer">查看 Carousell 專頁</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="scenarios">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">常見平台</span>
+          <h2 class="section-title">常見海外購物平台查詢</h2>
+          <p class="section-desc">
+            你可以直接提供商品頁面連結，本店會按平台規則、商品資料及實際情況確認能否安排。以下只是常見查詢例子，其他海外品牌官網或零售平台亦可先發連結查詢。
+          </p>
+        </div>
+
+        <div class="platform-grid" aria-label="常見海外購物平台列表">
+          <article class="platform-card">
+            <div class="platform-logo">eBay</div>
+            <p>適合拍賣、二手、絕版款式及海外賣家商品查詢。</p>
+            <span class="platform-meta">拍賣 / 二手平台</span>
+          </article>
+          <article class="platform-card">
+            <div class="platform-logo">Amazon</div>
+            <p>適合海外零售商品、日用品、電子小物及指定品牌商品查詢。</p>
+            <span class="platform-meta">綜合購物平台</span>
+          </article>
+          <article class="platform-card">
+            <div class="platform-logo small">日本 Mercari</div>
+            <p>適合日本二手商品、限定周邊、停產款式及指定商品查詢。</p>
+            <span class="platform-meta">日本二手平台</span>
+          </article>
+          <article class="platform-card">
+            <div class="platform-logo small">TCGplayer.com</div>
+            <p>適合海外卡牌單卡、盒裝及指定卡牌商品查詢。</p>
+            <span class="platform-meta">卡牌平台</span>
+          </article>
+          <article class="platform-card">
+            <div class="platform-logo">Walmart</div>
+            <p>適合美國零售商品、玩具、生活用品及指定貨品查詢。</p>
+            <span class="platform-meta">美國零售平台</span>
+          </article>
+          <article class="platform-card">
+            <div class="platform-logo small">日本樂天 Rakuten</div>
+            <p>適合日本網店商品、品牌商品及指定店舖商品查詢。</p>
+            <span class="platform-meta">日本購物平台</span>
+          </article>
+          <article class="platform-card">
+            <div class="platform-logo small">Yahoo! JAPAN 拍賣</div>
+            <p>適合日本拍賣商品、二手商品及較少見款式查詢。</p>
+            <span class="platform-meta">日本拍賣平台</span>
+          </article>
+          <article class="platform-card">
+            <div class="platform-logo small">海外品牌官網</div>
+            <p>適合指定品牌、限定發售、會員限定或地區限定商品查詢。</p>
+            <span class="platform-meta">品牌官網查詢</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section restricted-subtle" id="restricted">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">代購須知</span>
+          <h2 class="section-title">常見未能代購或需要先確認的貨品</h2>
+          <p class="section-desc">
+            大部分一般海外商品都可以先提供連結查詢。以下只屬常見需要先確認或未必適合安排的類別，目的是保障運輸安全及避免客人下單後才發現未能處理。
+          </p>
+        </div>
+
+        <div class="restricted-shell">
+          <div class="restricted-intro">
+            <article class="restricted-help">
+              <h3>不確定能否安排？先發商品連結即可</h3>
+              <p>
+                商品成分、容量、電池資料、包裝方式、用途及網站規則都可能影響能否處理。提供官方商品頁面或清晰截圖，會較容易判斷。
+              </p>
+            </article>
+
+            <article class="restricted-help">
+              <h3>我們會按實際情況回覆</h3>
+              <p>
+                如商品涉及危險品、受管制、易腐壞、藥物醫療、武器、煙酒、現金或其他高風險類別，本店會先確認再回覆是否適合安排。
+              </p>
+            </article>
+          </div>
+
+          <div class="restricted-list">
+            <details>
+              <summary>常見需要先確認或未能安排的商品類別</summary>
+              <p>以下是較常見需要先確認的方向，並非完整清單。如不確定商品是否適合安排，建議先提供連結讓本店確認。</p>
+              <div class="restricted-categories">
+                <span class="restricted-chip">易燃、噴霧、液體及危險化學品</span>
+                <span class="restricted-chip">電池、行動電源及強磁性物件</span>
+                <span class="restricted-chip">食品、動植物及易腐壞物品</span>
+                <span class="restricted-chip">藥物、受限制保健品及醫療相關物品</span>
+                <span class="restricted-chip">武器、仿真武器、彈藥及管制刀具</span>
+                <span class="restricted-chip">煙酒、現金、有價證券及賭博設備</span>
+                <span class="restricted-chip">侵權貨品、成分不明粉末及異常包裹</span>
+              </div>
+            </details>
+          </div>
+
+          <div class="restricted-disclaimer">
+            以上只作一般參考，並非完整清單。實際能否代購、收貨或運送，會以商品資料、平台規則、當地及香港相關規定、運輸安全要求及本店最終確認為準。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">常見問題</span>
+          <h2 class="section-title">查詢前最常問</h2>
+          <p class="section-desc">
+            以下是客人查詢前較常見的問題。如你的商品比較特別，建議直接傳送連結查詢。
+          </p>
+        </div>
+
+        <div class="faq-list">
+          <details open>
+            <summary>未決定購買，可以先查詢嗎？</summary>
+            <p>可以。你可以先提供商品連結、款式及數量，本店會按商品資料及實際情況回覆能否安排及初步費用。確認報價及安排後，再決定是否付款即可。</p>
+          </details>
+
+          <details>
+            <summary>任何海外商品都可以查詢嗎？</summary>
+            <p>大部分海外商品都可以先提供連結查詢，但不是所有商品都一定可以安排。能否處理會視乎商品類型、網站規則、地區限制、付款安排及物流限制而定，最終以本店確認為準。</p>
+          </details>
+
+          <details>
+            <summary>有沒有商品需要先確認？</summary>
+            <p>有。部分涉及危險品、電池、食品、藥物、醫療用品、武器或管制品、煙酒、現金、有價證券、侵權貨品等類別，可能需要先確認或未必適合安排。建議先提供商品連結讓本店判斷。</p>
+          </details>
+
+          <details>
+            <summary>查詢時要提供甚麼資料？</summary>
+            <p>建議提供商品連結、款式、顏色、尺寸、數量及希望收貨方式。如商品有多個版本，請截圖或標明指定款式，會較容易確認。</p>
+          </details>
+
+          <details>
+            <summary>一般幾耐會到香港？</summary>
+            <p>海外商品代購一般約 2–3 星期到港；部分地區或商品有機會較快或較慢。實際時間會受網店出貨速度、清關及物流安排影響。</p>
+          </details>
+
+          <details>
+            <summary>到港後可以點樣收貨？</summary>
+            <p>到港後可選順豐站、智能櫃自取；如需要上門派送，亦可以另外安排。實際安排會按商品尺寸、重量及客人需要確認。</p>
+          </details>
+
+          <details>
+            <summary>支援哪些付款方式？</summary>
+            <p>目前支援 PayMe、AlipayHK 及 FPS 轉數快。實際付款安排會在客人確認報價及代購安排後提供。</p>
+          </details>
+
+          <details>
+            <summary>可以用 Carousell PM 查詢嗎？</summary>
+            <p>可以。你可以透過 WhatsApp 或 Carousell PM 查詢。建議提供商品連結及要求，方便本店更快回覆。</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section final-cta">
+      <div class="container">
+        <h2>有想買的海外商品？先把連結發給我們</h2>
+        <p>
+          未決定是否購買也可以先查詢，了解能否安排及初步費用。請提供商品連結、款式、數量及希望的收貨方式，本店會按實際情況回覆下一步流程。
+        </p>
+        <a class="btn btn-primary" href="#" data-whatsapp-link>WhatsApp 發送商品連結</a>
+        <div class="low-pressure">查詢前不需要先付款，確認報價及安排後再決定即可。</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <strong>Buy Mate</strong>
+          <p>拍覓國際網購（香港）<br>Buy Mate Ecommerce International (HK)</p>
+          <p>專業一站式海外商品代購</p>
+        </div>
+
+        <div class="footer-links">
+          <a class="footer-link" href="#" data-whatsapp-link aria-label="WhatsApp 查詢">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20.5 11.8A8.5 8.5 0 0 1 7.8 19.2L4 20.4l1.2-3.6A8.5 8.5 0 1 1 20.5 11.8Z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M9.2 8.3c.2-.5.4-.5.7-.5h.5c.2 0 .4.1.5.4l.6 1.4c.1.3.1.5-.1.7l-.4.5c.8 1.3 1.8 2.2 3.1 2.9l.5-.6c.2-.2.4-.3.7-.2l1.4.6c.3.1.4.3.4.6v.5c0 .4-.2.7-.6.9-.6.3-1.4.4-2.4.1-2.7-.8-5.1-3.1-5.9-5.7-.3-.8 0-1.4.5-1.6Z" fill="currentColor"/>
+            </svg>
+          </a>
+          <a class="footer-link" href="https://www.carousell.com.hk/u/buymate.hk/" target="_blank" rel="noopener noreferrer" aria-label="Carousell 專頁">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6.5 8.5h11l-.8 10.2a2 2 0 0 1-2 1.8H9.3a2 2 0 0 1-2-1.8L6.5 8.5Z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/>
+              <path d="M9 9V7a3 3 0 0 1 6 0v2" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+              <path d="M8 8.5h8" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+            </svg>
+          </a>
+          <a class="footer-link" href="mailto:buymate.hk@gmail.com" aria-label="電子郵件">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4.5 6.8h15v10.4a2 2 0 0 1-2 2h-11a2 2 0 0 1-2-2V6.8Z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/>
+              <path d="m5.3 7.6 6.7 5.2 6.7-5.2" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="currentYear"></span> Buy Mate Ecommerce International (HK). 版權所有。</p>
+      </div>
+    </div>
+  </footer>
+
+  <a class="mobile-fixed-cta" href="#" data-whatsapp-link>WhatsApp 發送商品連結</a>
+
+  <script>
+    const WHATSAPP_NUMBER = "852XXXXXXXX";
+
+    const WHATSAPP_MESSAGE = [
+      "你好，我想查詢 Buy Mate 海外代購服務。",
+      "",
+      "商品連結：",
+      "款式 / 顏色 / 尺寸：",
+      "數量：",
+      "希望收貨方式：",
+      "其他要求："
+    ].join("\n");
+
+    function buildWhatsappUrl() {
+      return "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(WHATSAPP_MESSAGE);
+    }
+
+    function setupWhatsappLinks() {
+      const links = document.querySelectorAll("[data-whatsapp-link]");
+
+      links.forEach(function (link) {
+        link.addEventListener("click", function (event) {
+          if (WHATSAPP_NUMBER.includes("X")) {
+            event.preventDefault();
+            alert("請先在 index.html 內把 WHATSAPP_NUMBER 改成你的 WhatsApp 號碼，例如 85291234567。");
+            return;
+          }
+
+          link.setAttribute("href", buildWhatsappUrl());
+          link.setAttribute("target", "_blank");
+          link.setAttribute("rel", "noopener noreferrer");
+        });
+      });
+    }
+
+    function setupNavbar() {
+      const navbar = document.getElementById("navbar");
+
+      function handleScroll() {
+        if (window.scrollY > 20) {
+          navbar.classList.add("is-scrolled");
+        } else {
+          navbar.classList.remove("is-scrolled");
+        }
+      }
+
+      window.addEventListener("scroll", handleScroll);
+      handleScroll();
+    }
+
+    function setupMobileMenu() {
+      const button = document.getElementById("mobileMenuButton");
+      const menu = document.getElementById("mobileMenu");
+      const links = menu.querySelectorAll("a");
+
+      button.addEventListener("click", function () {
+        const isOpen = menu.classList.toggle("is-open");
+        button.classList.toggle("is-open", isOpen);
+        button.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      });
+
+      links.forEach(function (link) {
+        link.addEventListener("click", function () {
+          menu.classList.remove("is-open");
+          button.classList.remove("is-open");
+          button.setAttribute("aria-expanded", "false");
+        });
+      });
+    }
+
+    function setupCopyTemplate() {
+      const button = document.getElementById("copyTemplateBtn");
+      if (!button) return;
+
+      const template = [
+        "商品連結：",
+        "款式 / 顏色 / 尺寸：",
+        "數量：",
+        "希望收貨方式：",
+        "其他要求："
+      ].join("\n");
+
+      button.addEventListener("click", async function () {
+        try {
+          await navigator.clipboard.writeText(template);
+          button.textContent = "已複製查詢格式";
+          setTimeout(function () {
+            button.textContent = "複製查詢格式";
+          }, 1600);
+        } catch (error) {
+          alert(template);
+        }
+      });
+    }
+
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+    setupWhatsappLinks();
+    setupNavbar();
+    setupMobileMenu();
+    setupCopyTemplate();
+  </script>
+</body>
+</html>
